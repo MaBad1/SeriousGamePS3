@@ -11,6 +11,12 @@ TagManager:
   - Bleu
   - Violet
   - Taken
+  - VioletSeed
+  - BleuSeed
+  - OrangeSeed
+  - JauneSeed
+  - RoseSeed
+  - CyanSeed
   layers:
   - Default
   - TransparentFX

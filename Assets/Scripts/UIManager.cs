@@ -14,6 +14,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject indiceIco;
     [SerializeField] GameObject bagClose;
     [SerializeField] GameObject bagOpen;
+    [SerializeField] GameObject optionsTitle;
+    [SerializeField] GameObject orangerie;
+    [SerializeField] GameObject backB;
+    [SerializeField] GameObject homeB;
+    [SerializeField] GameObject clue;
     
 
     [SerializeField] GameObject graineBleue;
@@ -22,6 +27,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject graineCyan;
     [SerializeField] GameObject graineViolette;
     [SerializeField] GameObject graineRose;
+
+    public bool isMuted = false;
+    public bool clueOnSceen = false;
 
     public enum State
     {
@@ -36,8 +44,13 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         indiceIco.gameObject.SetActive(false);
+        orangerie.gameObject.SetActive(false);
         bagClose.gameObject.SetActive(false);
         bagOpen.gameObject.SetActive(false);
+        homeB.gameObject.SetActive(false);
+        backB.gameObject.SetActive(false);
+        clue.gameObject.SetActive(false);
+        optionsTitle.gameObject.SetActive(false);
         graineBleue.gameObject.SetActive(false);
         graineOrange.gameObject.SetActive(false);
         graineJaune.gameObject.SetActive(false);
@@ -51,6 +64,8 @@ public class UIManager : MonoBehaviour
     {
         startB.GetComponent<Button>().onClick.AddListener(StartGame);
         bagClose.GetComponent<Button>().onClick.AddListener(OpenBag);
+        muteB.GetComponent<Button>().onClick.AddListener(MuteSwitch);
+        indiceIco.GetComponent<Button>().onClick.AddListener(ShowClue);
     }
 
     public void StartGame()
@@ -58,6 +73,7 @@ public class UIManager : MonoBehaviour
         gameState = State.InGameBagClose;
 
         indiceIco.gameObject.SetActive(true);
+        orangerie.gameObject.SetActive(true);
         bagClose.gameObject.SetActive(true);
         startB.gameObject.SetActive(false);
         title.gameObject.SetActive(false);
@@ -77,6 +93,32 @@ public class UIManager : MonoBehaviour
             graineCyan.gameObject.SetActive(true);
             graineViolette.gameObject.SetActive(true);
             graineRose.gameObject.SetActive(true);
+        }
+    }
+
+    public void MuteSwitch()
+    {
+        if (isMuted == false)
+        {
+            isMuted = true;
+        }
+        else
+        {
+            isMuted = false;
+        }
+    }
+
+    public void ShowClue()
+    {
+        if (clueOnSceen == false)
+        {
+            clue.gameObject.SetActive(true);
+            clueOnSceen = true;
+        }
+        else if (clueOnSceen == true)
+        {
+            clue.gameObject.SetActive(false);
+            clueOnSceen = false;
         }
     }
 }
