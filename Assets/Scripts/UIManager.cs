@@ -44,7 +44,8 @@ public class UIManager : MonoBehaviour
         Menu,
         InGameBagClose,
         InGameBagOpen,
-        GameOver
+        GameOver,
+        Win
     }
 
     public State gameState = State.Menu;
@@ -84,7 +85,8 @@ public class UIManager : MonoBehaviour
 
         if(_moveLimit <= 0)
         {
-
+            gameState = State.GameOver;
+            GameOver();
         }
     }
 
@@ -125,6 +127,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void WinFunction()
+    {
+        if(gameState == State.InGameBagOpen)
+        {
+            gameState = State.Win;
+            Debug.Log("You Win");
+        }
+    }
     public void MuteSwitch()
     {
         if (isMuted == false)
@@ -148,6 +158,14 @@ public class UIManager : MonoBehaviour
         {
             clue.gameObject.SetActive(false);
             clueOnSceen = false;
+        }
+    }
+
+    public void GameOver()
+    {
+        if (gameState == State.GameOver)
+        {
+            Debug.Log("you lose");
         }
     }
 }
