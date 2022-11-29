@@ -784,9 +784,11 @@ MonoBehaviour:
   plante: {fileID: 891694713506967364, guid: 6dbeaa10a61f9004a8a5e5e841d6d653, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
+  counter: {fileID: 93655781}
   selectableTag: RoseSeed
   matchingTag: Rose
   speed: 0.005
+  count: 3
 --- !u!1 &220560860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,9 +1266,11 @@ MonoBehaviour:
   plante: {fileID: 5656231521576401566, guid: e8c6a53359ef985418dd48e8099a49c3, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
+  counter: {fileID: 731248442}
   selectableTag: JauneSeed
   matchingTag: Jaune
   speed: 0.005
+  count: 2
 --- !u!1 &336958510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,9 +1393,11 @@ MonoBehaviour:
   plante: {fileID: 8733946843471391762, guid: 5f1385e3d427c37478a393f6a4484217, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
+  counter: {fileID: 462675339}
   selectableTag: VioletSeed
   matchingTag: Violet
   speed: 0.005
+  count: 2
 --- !u!1001 &387401964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3343,6 +3349,13 @@ MonoBehaviour:
   backB: {fileID: 2079466769}
   homeB: {fileID: 559321673}
   clue: {fileID: 27440163}
+  moveLimit: {fileID: 2098930414}
+  orangeNb: {fileID: 20777312}
+  yellowNb: {fileID: 731248442}
+  blueNb: {fileID: 566057084}
+  violetNb: {fileID: 462675339}
+  roseNb: {fileID: 93655781}
+  cyanNb: {fileID: 71824231}
   graineBleue: {fileID: 1796282045}
   graineOrange: {fileID: 1886449061}
   graineJaune: {fileID: 333511150}
@@ -3351,6 +3364,7 @@ MonoBehaviour:
   graineRose: {fileID: 215868866}
   isMuted: 0
   clueOnSceen: 0
+  _moveLimit: 18
   gameState: 0
 --- !u!1001 &1294570167
 PrefabInstance:
@@ -4076,9 +4090,11 @@ MonoBehaviour:
   plante: {fileID: 7044306967872423698, guid: 8661da6fd1f009f4e9f54b56e60a7fad, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
+  counter: {fileID: 566057084}
   selectableTag: BleuSeed
   matchingTag: Bleu
   speed: 0.005
+  count: 2
 --- !u!1 &1847042853
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,9 +4262,11 @@ MonoBehaviour:
   plante: {fileID: 3485496301608848064, guid: e1643a742c02bd04ab06f901bff935a9, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
+  counter: {fileID: 71824231}
   selectableTag: CyanSeed
   matchingTag: Cyan
   speed: 0.005
+  count: 2
 --- !u!1 &1886449061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 667207268599081933, guid: bafe50e65d424474a8d77100c0debf74, type: 3}
@@ -4274,9 +4292,11 @@ MonoBehaviour:
   plante: {fileID: 1956744043929437012, guid: e5a7f9ea77de1ab4ba3cf71ea5add7b5, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
+  counter: {fileID: 20777312}
   selectableTag: OrangeSeed
   matchingTag: Orange
-  speed: 0.005
+  speed: 0.05
+  count: 1
 --- !u!1001 &1946071488
 PrefabInstance:
   m_ObjectHideFlags: 0

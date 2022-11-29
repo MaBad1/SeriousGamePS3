@@ -19,6 +19,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject backB;
     [SerializeField] GameObject homeB;
     [SerializeField] GameObject clue;
+    [SerializeField] Text moveLimit;
+    [SerializeField] Text orangeNb;
+    [SerializeField] Text yellowNb;
+    [SerializeField] Text blueNb;
+    [SerializeField] Text violetNb;
+    [SerializeField] Text roseNb;
+    [SerializeField] Text cyanNb;
     
 
     [SerializeField] GameObject graineBleue;
@@ -30,6 +37,7 @@ public class UIManager : MonoBehaviour
 
     public bool isMuted = false;
     public bool clueOnSceen = false;
+    public int _moveLimit = 18;
 
     public enum State
     {
@@ -50,6 +58,13 @@ public class UIManager : MonoBehaviour
         homeB.gameObject.SetActive(false);
         backB.gameObject.SetActive(false);
         clue.gameObject.SetActive(false);
+        moveLimit.gameObject.SetActive(false);
+        orangeNb.gameObject.SetActive(false);
+        yellowNb.gameObject.SetActive(false);
+        blueNb.gameObject.SetActive(false);
+        violetNb.gameObject.SetActive(false);
+        roseNb.gameObject.SetActive(false);
+        cyanNb.gameObject.SetActive(false);
         optionsTitle.gameObject.SetActive(false);
         graineBleue.gameObject.SetActive(false);
         graineOrange.gameObject.SetActive(false);
@@ -66,6 +81,11 @@ public class UIManager : MonoBehaviour
         bagClose.GetComponent<Button>().onClick.AddListener(OpenBag);
         muteB.GetComponent<Button>().onClick.AddListener(MuteSwitch);
         indiceIco.GetComponent<Button>().onClick.AddListener(ShowClue);
+
+        if(_moveLimit <= 0)
+        {
+
+        }
     }
 
     public void StartGame()
@@ -93,6 +113,15 @@ public class UIManager : MonoBehaviour
             graineCyan.gameObject.SetActive(true);
             graineViolette.gameObject.SetActive(true);
             graineRose.gameObject.SetActive(true);
+            moveLimit.gameObject.SetActive(true);
+            orangeNb.gameObject.SetActive(true);
+            yellowNb.gameObject.SetActive(true);
+            blueNb.gameObject.SetActive(true);
+            violetNb.gameObject.SetActive(true);
+            roseNb.gameObject.SetActive(true);
+            cyanNb.gameObject.SetActive(true);
+
+            moveLimit.text = "actions lefts" + _moveLimit.ToString();
         }
     }
 

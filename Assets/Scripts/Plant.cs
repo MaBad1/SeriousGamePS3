@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Plant : MonoBehaviour
 {
     [SerializeField] GameObject plante;
     [SerializeField] Material triggerOn;
     [SerializeField] Material triggerOff;
+    [SerializeField] Text counter;
     [SerializeField] public string selectableTag = "Selectable";
     [SerializeField] public string matchingTag = "Matching";
 
 
     private Touch touch;
     public float speed = 0.01f;
+    public int count = 2;
     private bool finalPosition = false;
     private bool parcelleStop = false;
     private bool move = false;
@@ -27,6 +30,7 @@ public class Plant : MonoBehaviour
     {
         originX = transform.position.x;
         originZ = transform.position.z;
+        counter.text = count.ToString();
     }
 
     // Update is called once per frame
@@ -111,6 +115,8 @@ public class Plant : MonoBehaviour
             Instantiate(plante, new Vector3(targetX, targetY, targetZ), Quaternion.identity);
             finalPosition = false;
             parcelleStop = false;
+            count -= 1;
+            counter.text = count.ToString();
             ResetPose();
         }
         else
@@ -124,5 +130,6 @@ public class Plant : MonoBehaviour
     private void ResetPose()
     {
         transform.position = new Vector3(originX, 0.57f, originZ);
+        FindObjectOfType<UIManager>()._moveLimit -= 1;
     }
 }
