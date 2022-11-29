@@ -787,7 +787,7 @@ MonoBehaviour:
   counter: {fileID: 93655781}
   selectableTag: RoseSeed
   matchingTag: Rose
-  speed: 0.005
+  speed: 0.05
   count: 3
 --- !u!1 &220560860
 GameObject:
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   counter: {fileID: 731248442}
   selectableTag: JauneSeed
   matchingTag: Jaune
-  speed: 0.005
+  speed: 0.05
   count: 2
 --- !u!1 &336958510
 GameObject:
@@ -1396,7 +1396,7 @@ MonoBehaviour:
   counter: {fileID: 462675339}
   selectableTag: VioletSeed
   matchingTag: Violet
-  speed: 0.005
+  speed: 0.05
   count: 2
 --- !u!1001 &387401964
 PrefabInstance:
@@ -4093,7 +4093,7 @@ MonoBehaviour:
   counter: {fileID: 566057084}
   selectableTag: BleuSeed
   matchingTag: Bleu
-  speed: 0.005
+  speed: 0.05
   count: 2
 --- !u!1 &1847042853
 GameObject:
@@ -4265,7 +4265,7 @@ MonoBehaviour:
   counter: {fileID: 71824231}
   selectableTag: CyanSeed
   matchingTag: Cyan
-  speed: 0.005
+  speed: 0.05
   count: 2
 --- !u!1 &1886449061 stripped
 GameObject:

@@ -94,6 +94,7 @@ public class Plant : MonoBehaviour
         other.GetComponent<MeshRenderer>().material = triggerOn;
         if (matchingTag == other.tag)
         {
+            
             targetX = other.transform.position.x;
             targetY = other.transform.position.y;
             targetZ = other.transform.position.z;

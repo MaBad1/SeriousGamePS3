@@ -88,6 +88,13 @@ public class UIManager : MonoBehaviour
             gameState = State.GameOver;
             GameOver();
         }
+        moveLimit.text = "actions lefts" + _moveLimit.ToString();
+
+        if(graineBleue.gameObject.activeInHierarchy == false && graineOrange.gameObject.activeInHierarchy == false && graineJaune.gameObject.activeInHierarchy == false
+            && graineCyan.gameObject.activeInHierarchy == false && graineViolette.gameObject.activeInHierarchy == false && graineRose.gameObject.activeInHierarchy == false)
+        {
+            WinFunction();
+        } 
     }
 
     public void StartGame()
@@ -123,7 +130,7 @@ public class UIManager : MonoBehaviour
             roseNb.gameObject.SetActive(true);
             cyanNb.gameObject.SetActive(true);
 
-            moveLimit.text = "actions lefts" + _moveLimit.ToString();
+            
         }
     }
 
