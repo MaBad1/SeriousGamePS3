@@ -66,11 +66,6 @@ public class UIManager : MonoBehaviour
         retryB.gameObject.SetActive(false);
         restartB.gameObject.SetActive(false);
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         //Debug.Log(gameState);
         startB.GetComponent<Button>().onClick.AddListener(StartGame);
         bagClose.GetComponent<Button>().onClick.AddListener(OpenBag);
@@ -81,6 +76,12 @@ public class UIManager : MonoBehaviour
         restartB.GetComponent<Button>().onClick.AddListener(Restart);
         retryB.GetComponent<Button>().onClick.AddListener(StartGame);
         backB.GetComponent<Button>().onClick.AddListener(StepBack);
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if(_moveLimit <= 0)
         {
