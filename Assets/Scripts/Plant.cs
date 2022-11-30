@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Plant : MonoBehaviour
 {
@@ -20,15 +21,40 @@ public class Plant : MonoBehaviour
     private bool parcelleStop = false;
     private bool move = false;
     private float originX;
+    private float originY;
     private float originZ;
     private float targetX;
     private float targetY;
     private float targetZ;
- 
+    public string checker;
+
+
+    private void Awake()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "Level3")
+        {
+            checker = "Level3";
+            
+        }
+        if (sceneName == "Level2")
+        {
+            checker = "Level2";
+        }
+        if (sceneName == "Level1")
+        {
+            checker = "Level1";
+        }
+        
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
+        
         originX = transform.position.x;
+        originY = transform.position.y;
         originZ = transform.position.z;
         counter.text = count.ToString();
     }
@@ -36,14 +62,15 @@ public class Plant : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FindObjectOfType<UIManager>().gameState == UIManager.State.InGameBagOpen 
-            || FindObjectOfType<UIManager>().gameState == UIManager.State.InGameBagOpenLvlUn 
-            || FindObjectOfType<UIManager>().gameState == UIManager.State.InGameBagOpenLvlDeux)
+        
+        if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpen 
+            || FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn 
+            || FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux)
         {
             if (Input.touchCount > 0)
             {
                 touch = Input.GetTouch(0);
-
+                
 
                 Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit hit;
@@ -137,7 +164,19 @@ public class Plant : MonoBehaviour
 
     private void ResetPose()
     {
-        transform.position = new Vector3(originX, 0.57f, originZ);
-        FindObjectOfType<UIManager>()._moveLimit -= 1;
+        transform.position = new Vector3(originX, originY, originZ);
+        if (checker == "Level3")
+        {
+            FindObjectOfType<UILvl3>()._moveLimit -= 1;
+        }
+        if (checker == "Level2")
+        {
+            FindObjectOfType<UILvl2>()._moveLimitDeux -= 1;
+        }
+        if (checker == "Level1")
+        {
+            FindObjectOfType<UILvl1>()._moveLimitUn -= 1;
+        }
+
     }
 }

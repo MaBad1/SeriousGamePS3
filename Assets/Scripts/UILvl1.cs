@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UIManagerLvl1 : MonoBehaviour
+public class UILvl1 : MonoBehaviour
 {
     [SerializeField] Text moveLimitLvlUn;
     [SerializeField] GameObject next1B;
@@ -14,7 +14,6 @@ public class UIManagerLvl1 : MonoBehaviour
     [SerializeField] GameObject muteB;
     [SerializeField] GameObject indiceIco;
     [SerializeField] GameObject bagClose;
-    [SerializeField] GameObject bagOpen;
     [SerializeField] GameObject backB;
     [SerializeField] GameObject optionsBack;
     [SerializeField] GameObject homeB;
@@ -36,20 +35,22 @@ public class UIManagerLvl1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<GameManager>().gameState = GameManager.State.InGameBagCloseLvlUn;
+        Debug.Log(FindObjectOfType<GameManager>().gameState);
         boxOptions.gameObject.SetActive(false);
         
         boxBagOpenLvlUn.gameObject.SetActive(false);
         
-        boxBagCloseLvlUn.gameObject.SetActive(false);
+        boxBagCloseLvlUn.gameObject.SetActive(true);
         
         boxGrainesLvlUn.gameObject.SetActive(false);
         
-        bagClose.gameObject.SetActive(false);
+        bagClose.gameObject.SetActive(true);
         clue.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
         victory.gameObject.SetActive(false);
         retryB.gameObject.SetActive(false);
-        
+        restartB.gameObject.SetActive(false);
         next1B.gameObject.SetActive(false);
         
 
@@ -77,7 +78,7 @@ public class UIManagerLvl1 : MonoBehaviour
 
         moveLimitLvlUn.text = "actions lefts : " + _moveLimitUn.ToString();
 
-        if (gameState == State.InGameBagOpenLvlUn && graineUn1.gameObject.activeInHierarchy == false && graineUn2.gameObject.activeInHierarchy == false && graineUn3.gameObject.activeInHierarchy == false)
+        if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn && graineUn1.gameObject.activeInHierarchy == false && graineUn2.gameObject.activeInHierarchy == false && graineUn3.gameObject.activeInHierarchy == false)
         {
             WinFunction();
         }
@@ -85,16 +86,16 @@ public class UIManagerLvl1 : MonoBehaviour
 
     public void NextLevel2()
     {
-        gameState = State.InGameBagCloseLvlDeux;
+        SceneManager.LoadScene("Level2");
     }
 
     public void OpenBag()
     {
         
 
-        if (gameState == State.InGameBagCloseLvlUn)
+        if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagCloseLvlUn)
         {
-            gameState = State.InGameBagOpenLvlUn;
+            FindObjectOfType<GameManager>().gameState = GameManager.State.InGameBagOpenLvlUn;
             bagClose.gameObject.SetActive(false);
             boxBagOpenLvlUn.gameObject.SetActive(true);
             boxGrainesLvlUn.gameObject.SetActive(true);
@@ -105,9 +106,9 @@ public class UIManagerLvl1 : MonoBehaviour
     public void WinFunction()
     {
         
-        if (gameState == State.InGameBagOpenLvlUn)
+        if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn)
         {
-            gameState = State.Win;
+            FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
             victory.gameObject.SetActive(true);
             optionsBack.gameObject.SetActive(true);
             next1B.gameObject.SetActive(true);
@@ -144,7 +145,7 @@ public class UIManagerLvl1 : MonoBehaviour
     public void OptionsShow()
     {
 
-        gameState = State.InOptions;
+        FindObjectOfType<GameManager>().gameState = GameManager.State.InOptions;
         boxOptions.gameObject.SetActive(true);
     }
 
@@ -161,9 +162,9 @@ public class UIManagerLvl1 : MonoBehaviour
 
     public void GameOver()
     {
-       if (gameState == State.InGameBagOpenLvlUn)
+       if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn)
         {
-            gameState = State.GameOver;
+            FindObjectOfType<GameManager>().gameState = GameManager.State.GameOver;
             _moveLimitUn = 15;
             muteB.gameObject.SetActive(false);
             optionsB.gameObject.SetActive(false);
