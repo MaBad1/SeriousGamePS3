@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public enum State
+    {
+        Menu,
+        InOptions,
+        InGameBagCloseLvlUn,
+        InGameBagCloseLvlDeux,
+        InGameBagClose,
+        InGameBagOpenLvlUn,
+        InGameBagOpenLvlDeux,
+        InGameBagOpen,
+        GameOver,
+        Win
+    }
+
+    public State gameState = State.Menu;
     private void Awake()
     {
         QualitySettings.vSyncCount = 0;
