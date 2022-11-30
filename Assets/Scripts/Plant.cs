@@ -65,9 +65,9 @@ public class Plant : MonoBehaviour
                     else if (touch.phase == TouchPhase.Moved)
                     {
                         transform.position = new Vector3(
-                            transform.position.x + touch.deltaPosition.x * speed,
+                            hit.transform.position.x,
                             transform.position.y,
-                            transform.position.z + touch.deltaPosition.y * speed
+                            hit.transform.position.z
                             );
                         //Debug.Log(finalPosition);
                     }
@@ -82,6 +82,7 @@ public class Plant : MonoBehaviour
             }
         }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -118,7 +119,12 @@ public class Plant : MonoBehaviour
             parcelleStop = false;
             count -= 1;
             counter.text = count.ToString();
+            
             ResetPose();
+            if (count <= 0)
+            {
+                gameObject.SetActive(false);
+            }
         }
         else
         {
