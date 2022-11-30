@@ -36,7 +36,9 @@ public class Plant : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FindObjectOfType<UIManager>().gameState == UIManager.State.InGameBagOpen)
+        if (FindObjectOfType<UIManager>().gameState == UIManager.State.InGameBagOpen 
+            || FindObjectOfType<UIManager>().gameState == UIManager.State.InGameBagOpenLvlUn 
+            || FindObjectOfType<UIManager>().gameState == UIManager.State.InGameBagOpenLvlDeux)
         {
             if (Input.touchCount > 0)
             {
