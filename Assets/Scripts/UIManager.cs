@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
 
     public bool isMuted = false;
     public bool clueOnSceen = false;
+    static bool newtry = false;
     public int _moveLimit = 18;
     private State buffer;
 
@@ -74,8 +75,14 @@ public class UIManager : MonoBehaviour
         optionsB.GetComponent<Button>().onClick.AddListener(OptionsShow);
         homeB.GetComponent<Button>().onClick.AddListener(MainMenu);
         restartB.GetComponent<Button>().onClick.AddListener(Restart);
-        retryB.GetComponent<Button>().onClick.AddListener(StartGame);
+        retryB.GetComponent<Button>().onClick.AddListener(NewTry);
         backB.GetComponent<Button>().onClick.AddListener(StepBack);
+
+        if(newtry == true)
+        {
+            StartGame();
+            newtry = false;
+        }
 
     }
 
@@ -205,6 +212,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void NewTry()
+    {
+        newtry = true;
+        SceneManager.LoadScene("Level3");
+    }
     public void Restart()
     {
         SceneManager.LoadScene("Level3");

@@ -83,7 +83,6 @@ public class Plant : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         /*if (tag == other.tag && finalPosition == true)

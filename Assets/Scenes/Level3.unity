@@ -820,6 +820,7 @@ MonoBehaviour:
   selectableTag: RoseSeed
   matchingTag: Rose
   speed: 0.05
+  baseNb: 3
   count: 3
 --- !u!1 &220560860
 GameObject:
@@ -1301,6 +1302,7 @@ MonoBehaviour:
   selectableTag: JauneSeed
   matchingTag: Jaune
   speed: 0.05
+  baseNb: 2
   count: 2
 --- !u!1 &336958510
 GameObject:
@@ -1428,6 +1430,7 @@ MonoBehaviour:
   selectableTag: VioletSeed
   matchingTag: Violet
   speed: 0.05
+  baseNb: 2
   count: 2
 --- !u!1001 &387401964
 PrefabInstance:
@@ -4608,6 +4611,7 @@ MonoBehaviour:
   selectableTag: BleuSeed
   matchingTag: Bleu
   speed: 0.05
+  baseNb: 2
   count: 2
 --- !u!1 &1847042853
 GameObject:
@@ -4780,6 +4784,7 @@ MonoBehaviour:
   selectableTag: CyanSeed
   matchingTag: Cyan
   speed: 0.05
+  baseNb: 2
   count: 2
 --- !u!1 &1886156846
 GameObject:
@@ -4931,6 +4936,7 @@ MonoBehaviour:
   selectableTag: OrangeSeed
   matchingTag: Orange
   speed: 0.05
+  baseNb: 1
   count: 1
 --- !u!1 &1931507817
 GameObject:
