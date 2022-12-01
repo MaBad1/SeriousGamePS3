@@ -71,14 +71,14 @@ public class UILvl1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_moveLimitUn <= 0)
+        if (_moveLimitUn <= 5 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn && graineUn1.gameObject.activeInHierarchy == false && graineUn2.gameObject.activeInHierarchy == false && graineUn3.gameObject.activeInHierarchy == false)
         {
             GameOver();
         }
 
-        moveLimitLvlUn.text = "actions lefts : " + _moveLimitUn.ToString();
+        moveLimitLvlUn.text = "Score : " + _moveLimitUn.ToString();
 
-        if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn && graineUn1.gameObject.activeInHierarchy == false && graineUn2.gameObject.activeInHierarchy == false && graineUn3.gameObject.activeInHierarchy == false)
+        if (_moveLimitUn >= 6 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn && graineUn1.gameObject.activeInHierarchy == false && graineUn2.gameObject.activeInHierarchy == false && graineUn3.gameObject.activeInHierarchy == false)
         {
             WinFunction();
         }
@@ -111,6 +111,7 @@ public class UILvl1 : MonoBehaviour
             FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
             victory.gameObject.SetActive(true);
             optionsBack.gameObject.SetActive(true);
+            retryB.gameObject.SetActive(true);
             next1B.gameObject.SetActive(true);
             restartB.gameObject.SetActive(true);
         }

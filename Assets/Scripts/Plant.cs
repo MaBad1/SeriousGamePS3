@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Plant : MonoBehaviour
 {
     [SerializeField] GameObject plante;
+    [SerializeField] GameObject planteWrong;
     [SerializeField] Material triggerOn;
     [SerializeField] Material triggerOff;
     [SerializeField] Text counter;
@@ -120,13 +121,12 @@ public class Plant : MonoBehaviour
             Instantiate(plante, new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z), Quaternion.identity);
             finalPosition = false;
         }*/
+        targetX = other.transform.position.x;
+        targetY = other.transform.position.y;
+        targetZ = other.transform.position.z;
         other.GetComponent<MeshRenderer>().material = triggerOn;
         if (matchingTag == other.tag)
         {
-            
-            targetX = other.transform.position.x;
-            targetY = other.transform.position.y;
-            targetZ = other.transform.position.z;
             parcelleStop = true;
             Debug.Log(other.tag);
         }
@@ -147,36 +147,57 @@ public class Plant : MonoBehaviour
             parcelleStop = false;
             count -= 1;
             counter.text = count.ToString();
-            
+
+            if (checker == "Level3")
+            {
+                FindObjectOfType<UILvl3>()._moveLimit += 3;
+            }
+            if (checker == "Level2")
+            {
+                FindObjectOfType<UILvl2>()._moveLimitDeux += 3;
+            }
+            if (checker == "Level1")
+            {
+                FindObjectOfType<UILvl1>()._moveLimitUn += 3;
+            }
+
             ResetPose();
             if (count <= 0)
             {
                 gameObject.SetActive(false);
             }
         }
-        else
+        else if (finalPosition == true && parcelleStop == false)
         {
+            Instantiate(planteWrong, new Vector3(targetX, targetY, targetZ), Quaternion.identity);
             finalPosition = false;
             parcelleStop = false;
+            count -= 1;
+            counter.text = count.ToString();
+
+            if (checker == "Level3")
+            {
+                FindObjectOfType<UILvl3>()._moveLimit += 1;
+            }
+            if (checker == "Level2")
+            {
+                FindObjectOfType<UILvl2>()._moveLimitDeux += 1;
+            }
+            if (checker == "Level1")
+            {
+                FindObjectOfType<UILvl1>()._moveLimitUn += 1;
+            }
+
             ResetPose();
+            if (count <= 0)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 
     private void ResetPose()
     {
         transform.position = new Vector3(originX, originY, originZ);
-        if (checker == "Level3")
-        {
-            FindObjectOfType<UILvl3>()._moveLimit -= 1;
-        }
-        if (checker == "Level2")
-        {
-            FindObjectOfType<UILvl2>()._moveLimitDeux -= 1;
-        }
-        if (checker == "Level1")
-        {
-            FindObjectOfType<UILvl1>()._moveLimitUn -= 1;
-        }
-
     }
 }

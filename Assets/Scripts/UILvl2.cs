@@ -65,13 +65,14 @@ public class UILvl2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_moveLimitDeux <= 0)
+        if (_moveLimitDeux <= 15 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux && graineDeux1.gameObject.activeInHierarchy == false && graineDeux2.gameObject.activeInHierarchy == false
+            && graineDeux3.gameObject.activeInHierarchy == false && graineDeux4.gameObject.activeInHierarchy == false)
         {
             GameOver();
         }
-        moveLimitLvlDeux.text = "actions lefts : " + _moveLimitDeux.ToString();
+        moveLimitLvlDeux.text = "Score : " + _moveLimitDeux.ToString();
 
-        if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux && graineDeux1.gameObject.activeInHierarchy == false && graineDeux2.gameObject.activeInHierarchy == false
+        if (_moveLimitDeux >= 16 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux && graineDeux1.gameObject.activeInHierarchy == false && graineDeux2.gameObject.activeInHierarchy == false
             && graineDeux3.gameObject.activeInHierarchy == false && graineDeux4.gameObject.activeInHierarchy == false)
         {
             WinFunction();
@@ -101,10 +102,21 @@ public class UILvl2 : MonoBehaviour
         if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux)
         {
             FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
-            victory.gameObject.SetActive(true);
-            optionsBack.gameObject.SetActive(true);
-            next2B.gameObject.SetActive(true);
-            restartB.gameObject.SetActive(true);
+            if (_moveLimitDeux >= 16 && _moveLimitDeux < 21)
+            {
+                victory.gameObject.SetActive(true);
+                optionsBack.gameObject.SetActive(true);
+                retryB.gameObject.SetActive(true);
+                next2B.gameObject.SetActive(true);
+                restartB.gameObject.SetActive(true);
+            }
+            if (_moveLimitDeux == 21)
+            {
+                victory.gameObject.SetActive(true);
+                optionsBack.gameObject.SetActive(true);
+                next2B.gameObject.SetActive(true);
+                restartB.gameObject.SetActive(true);
+            }
         }
     }
 

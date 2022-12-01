@@ -782,6 +782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plante: {fileID: 891694713506967364, guid: 6dbeaa10a61f9004a8a5e5e841d6d653, type: 3}
+  planteWrong: {fileID: 1804858921561918888, guid: 587f5e7d6553a09439ac2d0e5b12ef0f, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
   counter: {fileID: 93655781}
@@ -1065,6 +1066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plante: {fileID: 5656231521576401566, guid: e8c6a53359ef985418dd48e8099a49c3, type: 3}
+  planteWrong: {fileID: 3560381421517377231, guid: 1f0c9dd449141bc408782efdb2ba5c87, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
   counter: {fileID: 731248442}
@@ -1193,6 +1195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plante: {fileID: 8733946843471391762, guid: 5f1385e3d427c37478a393f6a4484217, type: 3}
+  planteWrong: {fileID: 3016258966063855065, guid: 556475c3ecd24a64d863c27367679ec4, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
   counter: {fileID: 462675339}
@@ -3359,7 +3362,7 @@ MonoBehaviour:
   graineRose: {fileID: 215868866}
   isMuted: 0
   clueOnSceen: 0
-  _moveLimit: 18
+  _moveLimit: 0
 --- !u!1001 &1294570167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4310,6 +4313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plante: {fileID: 7044306967872423698, guid: 8661da6fd1f009f4e9f54b56e60a7fad, type: 3}
+  planteWrong: {fileID: 1242528741873831614, guid: d312c683ebf08f64389e89da49bbe427, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
   counter: {fileID: 566057084}
@@ -4483,6 +4487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plante: {fileID: 3485496301608848064, guid: e1643a742c02bd04ab06f901bff935a9, type: 3}
+  planteWrong: {fileID: 3397071653941611095, guid: 256c9be2344db5542a6de93d66dbcbb9, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
   counter: {fileID: 71824231}
@@ -4635,6 +4640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plante: {fileID: 1956744043929437012, guid: e5a7f9ea77de1ab4ba3cf71ea5add7b5, type: 3}
+  planteWrong: {fileID: 9113599202556338272, guid: 45c532c640b273c4ca9fe97640d8bd6b, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
   counter: {fileID: 20777312}

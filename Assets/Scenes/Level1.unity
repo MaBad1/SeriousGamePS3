@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plante: {fileID: 1956744043929437012, guid: e5a7f9ea77de1ab4ba3cf71ea5add7b5, type: 3}
+  planteWrong: {fileID: 9113599202556338272, guid: 45c532c640b273c4ca9fe97640d8bd6b, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
   counter: {fileID: 319252377}
@@ -398,7 +399,7 @@ MonoBehaviour:
   graineUn3: {fileID: 2011448114}
   isMuted: 0
   clueOnSceen: 0
-  _moveLimitUn: 15
+  _moveLimitUn: 0
 --- !u!1 &54555080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plante: {fileID: 891694713506967364, guid: 6dbeaa10a61f9004a8a5e5e841d6d653, type: 3}
+  planteWrong: {fileID: 1804858921561918888, guid: 587f5e7d6553a09439ac2d0e5b12ef0f, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
   counter: {fileID: 1280040101}
@@ -4095,6 +4097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plante: {fileID: 7044306967872423698, guid: 8661da6fd1f009f4e9f54b56e60a7fad, type: 3}
+  planteWrong: {fileID: 1242528741873831614, guid: d312c683ebf08f64389e89da49bbe427, type: 3}
   triggerOn: {fileID: 2100000, guid: 629e052a0abf47e4cadb9785370595b1, type: 2}
   triggerOff: {fileID: 2100000, guid: 0f4dc8dd696659541b1fc90040c99f6d, type: 2}
   counter: {fileID: 1884120719}

@@ -34,7 +34,7 @@ public class UILvl3 : MonoBehaviour
 
     public bool isMuted = false;
     public bool clueOnSceen = false;
-    public int _moveLimit = 18;
+    public int _moveLimit = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,15 +64,16 @@ public class UILvl3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_moveLimit <= 0)
+        if (_moveLimit <= 25 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpen && graineBleue.gameObject.activeInHierarchy == false && graineOrange.gameObject.activeInHierarchy == false && graineJaune.gameObject.activeInHierarchy == false
+            && graineCyan.gameObject.activeInHierarchy == false && graineViolette.gameObject.activeInHierarchy == false && graineRose.gameObject.activeInHierarchy == false)
         {
             GameOver();
         }
-        moveLimit.text = "actions lefts : " + _moveLimit.ToString();
+        moveLimit.text = "score : " + _moveLimit.ToString();
 
 
 
-        if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpen && graineBleue.gameObject.activeInHierarchy == false && graineOrange.gameObject.activeInHierarchy == false && graineJaune.gameObject.activeInHierarchy == false
+        if (_moveLimit >= 26 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpen && graineBleue.gameObject.activeInHierarchy == false && graineOrange.gameObject.activeInHierarchy == false && graineJaune.gameObject.activeInHierarchy == false
             && graineCyan.gameObject.activeInHierarchy == false && graineViolette.gameObject.activeInHierarchy == false && graineRose.gameObject.activeInHierarchy == false)
         {
             WinFunction();
@@ -96,9 +97,19 @@ public class UILvl3 : MonoBehaviour
         if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpen)
         {
             FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
-            victory.gameObject.SetActive(true);
-            optionsBack.gameObject.SetActive(true);
-            restartB.gameObject.SetActive(true);
+            if(_moveLimit >= 26 && _moveLimit < 36)
+            {
+                victory.gameObject.SetActive(true);
+                optionsBack.gameObject.SetActive(true);
+                retryB.gameObject.SetActive(true);
+                restartB.gameObject.SetActive(true);
+            }
+            if (_moveLimit == 36)
+            {
+                victory.gameObject.SetActive(true);
+                optionsBack.gameObject.SetActive(true);
+                restartB.gameObject.SetActive(true);
+            }
         }
 
     }
