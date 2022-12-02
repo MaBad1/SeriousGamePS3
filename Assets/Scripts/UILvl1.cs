@@ -24,6 +24,11 @@ public class UILvl1 : MonoBehaviour
     [SerializeField] GameObject boxBagCloseLvlUn;
     [SerializeField] GameObject boxGrainesLvlUn;
     [SerializeField] GameObject boxOptions;
+    [SerializeField] GameObject boxStarEmpty;
+    [SerializeField] GameObject star1;
+    [SerializeField] GameObject star2;
+    [SerializeField] GameObject star3;
+    [SerializeField] GameObject perfect;
 
     [SerializeField] GameObject graineUn1;
     [SerializeField] GameObject graineUn2;
@@ -38,13 +43,10 @@ public class UILvl1 : MonoBehaviour
         FindObjectOfType<GameManager>().gameState = GameManager.State.InGameBagCloseLvlUn;
         Debug.Log(FindObjectOfType<GameManager>().gameState);
         boxOptions.gameObject.SetActive(false);
-        
+        optionsBack.gameObject.SetActive(false);
         boxBagOpenLvlUn.gameObject.SetActive(false);
-        
         boxBagCloseLvlUn.gameObject.SetActive(true);
-        
         boxGrainesLvlUn.gameObject.SetActive(false);
-        
         bagClose.gameObject.SetActive(true);
         clue.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
@@ -52,6 +54,11 @@ public class UILvl1 : MonoBehaviour
         retryB.gameObject.SetActive(false);
         restartB.gameObject.SetActive(false);
         next1B.gameObject.SetActive(false);
+        boxStarEmpty.gameObject.SetActive(false);
+        star1.gameObject.SetActive(false);
+        star2.gameObject.SetActive(false);
+        star3.gameObject.SetActive(false);
+        perfect.gameObject.SetActive(false);
         
 
         //Debug.Log(gameState);
@@ -109,11 +116,40 @@ public class UILvl1 : MonoBehaviour
         if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn)
         {
             FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
-            victory.gameObject.SetActive(true);
-            optionsBack.gameObject.SetActive(true);
-            retryB.gameObject.SetActive(true);
-            next1B.gameObject.SetActive(true);
-            restartB.gameObject.SetActive(true);
+            if(_moveLimitUn>=6 && _moveLimitUn < 8)
+            {
+                victory.gameObject.SetActive(true);
+                optionsBack.gameObject.SetActive(true);
+                retryB.gameObject.SetActive(true);
+                next1B.gameObject.SetActive(true);
+                restartB.gameObject.SetActive(true);
+                boxStarEmpty.gameObject.SetActive(true);
+                star1.gameObject.SetActive(true);
+            }
+            else if (_moveLimitUn >=8 && _moveLimitUn < 12)
+            {
+                victory.gameObject.SetActive(true);
+                optionsBack.gameObject.SetActive(true);
+                retryB.gameObject.SetActive(true);
+                next1B.gameObject.SetActive(true);
+                restartB.gameObject.SetActive(true);
+                boxStarEmpty.gameObject.SetActive(true);
+                star1.gameObject.SetActive(true); 
+                star2.gameObject.SetActive(true);
+            }
+            else if (_moveLimitUn == 12)
+            {
+                victory.gameObject.SetActive(true);
+                optionsBack.gameObject.SetActive(true);
+                perfect.gameObject.SetActive(true);
+                next1B.gameObject.SetActive(true);
+                restartB.gameObject.SetActive(true);
+                boxStarEmpty.gameObject.SetActive(true);
+                star1.gameObject.SetActive(true);
+                star2.gameObject.SetActive(true);
+                star3.gameObject.SetActive(true);
+            }
+            
         }
     }
 
@@ -148,6 +184,8 @@ public class UILvl1 : MonoBehaviour
 
         FindObjectOfType<GameManager>().gameState = GameManager.State.InOptions;
         boxOptions.gameObject.SetActive(true);
+        retryB.gameObject.SetActive(true);
+        optionsBack.gameObject.SetActive(true);
     }
 
     public void MainMenu()
@@ -157,8 +195,9 @@ public class UILvl1 : MonoBehaviour
 
     public void StepBack()
     {
-
+        retryB.gameObject.SetActive(false);
         boxOptions.gameObject.SetActive(false);
+        optionsBack.gameObject.SetActive(false);
     }
 
     public void GameOver()

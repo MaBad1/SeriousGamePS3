@@ -24,6 +24,11 @@ public class UILvl2 : MonoBehaviour
     [SerializeField] GameObject retryB;
     [SerializeField] GameObject gameOver;
     [SerializeField] GameObject victory;
+    [SerializeField] GameObject boxStarEmpty;
+    [SerializeField] GameObject star1;
+    [SerializeField] GameObject star2;
+    [SerializeField] GameObject star3;
+    [SerializeField] GameObject perfect;
 
     [SerializeField] GameObject graineDeux1;
     [SerializeField] GameObject graineDeux2;
@@ -39,6 +44,7 @@ public class UILvl2 : MonoBehaviour
     {
         FindObjectOfType<GameManager>().gameState = GameManager.State.InGameBagCloseLvlDeux;
         boxOptions.gameObject.SetActive(false);
+        optionsBack.gameObject.SetActive(false);
         boxBagOpenLvlDeux.gameObject.SetActive(false);
         boxBagCloseLvlDeux.gameObject.SetActive(true);
         boxGrainesLvlDeux.gameObject.SetActive(false);
@@ -49,6 +55,11 @@ public class UILvl2 : MonoBehaviour
         retryB.gameObject.SetActive(false);
         restartB.gameObject.SetActive(false);
         next2B.gameObject.SetActive(false);
+        boxStarEmpty.gameObject.SetActive(false);
+        star1.gameObject.SetActive(false);
+        star2.gameObject.SetActive(false);
+        star3.gameObject.SetActive(false);
+        perfect.gameObject.SetActive(false);
 
         //Debug.Log(gameState);
         bagClose.GetComponent<Button>().onClick.AddListener(OpenBag);
@@ -65,14 +76,14 @@ public class UILvl2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_moveLimitDeux <= 15 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux && graineDeux1.gameObject.activeInHierarchy == false && graineDeux2.gameObject.activeInHierarchy == false
+        if (_moveLimitDeux <= 12 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux && graineDeux1.gameObject.activeInHierarchy == false && graineDeux2.gameObject.activeInHierarchy == false
             && graineDeux3.gameObject.activeInHierarchy == false && graineDeux4.gameObject.activeInHierarchy == false)
         {
             GameOver();
         }
         moveLimitLvlDeux.text = "Score : " + _moveLimitDeux.ToString();
 
-        if (_moveLimitDeux >= 16 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux && graineDeux1.gameObject.activeInHierarchy == false && graineDeux2.gameObject.activeInHierarchy == false
+        if (_moveLimitDeux >= 13 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux && graineDeux1.gameObject.activeInHierarchy == false && graineDeux2.gameObject.activeInHierarchy == false
             && graineDeux3.gameObject.activeInHierarchy == false && graineDeux4.gameObject.activeInHierarchy == false)
         {
             WinFunction();
@@ -102,20 +113,38 @@ public class UILvl2 : MonoBehaviour
         if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux)
         {
             FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
-            if (_moveLimitDeux >= 16 && _moveLimitDeux < 21)
+            if (_moveLimitDeux >= 13 && _moveLimitDeux < 17)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
                 retryB.gameObject.SetActive(true);
                 next2B.gameObject.SetActive(true);
                 restartB.gameObject.SetActive(true);
+                boxStarEmpty.gameObject.SetActive(true);
+                star1.gameObject.SetActive(true);
             }
-            if (_moveLimitDeux == 21)
+            else if (_moveLimitDeux >= 17 && _moveLimitDeux < 21)
+            {
+                victory.gameObject.SetActive(true);
+                optionsBack.gameObject.SetActive(true);
+                retryB.gameObject.SetActive(true);
+                next2B.gameObject.SetActive(true);
+                restartB.gameObject.SetActive(true);
+                boxStarEmpty.gameObject.SetActive(true);
+                star1.gameObject.SetActive(true);
+                star2.gameObject.SetActive(true);
+            }
+            else if (_moveLimitDeux == 21)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
                 next2B.gameObject.SetActive(true);
                 restartB.gameObject.SetActive(true);
+                perfect.gameObject.SetActive(true);
+                boxStarEmpty.gameObject.SetActive(true);
+                star1.gameObject.SetActive(true);
+                star2.gameObject.SetActive(true);
+                star3.gameObject.SetActive(true);
             }
         }
     }
@@ -151,6 +180,8 @@ public class UILvl2 : MonoBehaviour
 
         FindObjectOfType<GameManager>().gameState = GameManager.State.InOptions;
         boxOptions.gameObject.SetActive(true);
+        retryB.gameObject.SetActive(true);
+        optionsBack.gameObject.SetActive(true);
     }
 
     public void MainMenu()
@@ -160,8 +191,9 @@ public class UILvl2 : MonoBehaviour
 
     public void StepBack()
     {
-
+        retryB.gameObject.SetActive(false);
         boxOptions.gameObject.SetActive(false);
+        optionsBack.gameObject.SetActive(false);
     }
 
     public void GameOver()
