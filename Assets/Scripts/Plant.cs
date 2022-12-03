@@ -157,15 +157,11 @@ public class Plant : MonoBehaviour
 
     private void PlantTest()
     {
-        //Si la dernière parcelle touchée correspond au tag ciblé :
-        if (finalPosition == true && parcelleStop == true)
+        //Si la parcelle est vide :
+        if(stock.tag != "Taken")
         {
             //on plante le prefab de plante au centre de la parcelle où le joueur a relaché le doigt.
             plant = Instantiate(plante, new Vector3(targetX, targetY, targetZ), Quaternion.identity);
-
-            //on réinitialise les booléens.
-            finalPosition = false;
-            parcelleStop = false;
 
             //on réduit le nombre de graine à planter et on actualise le compteur.
             count -= 1;
@@ -176,36 +172,26 @@ public class Plant : MonoBehaviour
 
             //On stocke les autres données dans des listes pour la fonction Undo :
             tagAreasResetS.Add(stock.tag);
-            stock.tag = "Right";
+            stock.tag = "Taken";
             tagAreasResetO.Add(stock);
 
             //On stocke la plante qu'on a planté dans une liste.
             planted.Add(plant);
 
-            //On stocke le booléen qui précise si on a ajouté un point de victoire ou non (dans ce cas on en a ajouté un).
-            addWinPoints = true;
-            winCheckReset.Add(addWinPoints);
+            //En fonction du niveau on ajuste les variables de scores dans le bon script.
 
-            //En fonction du niveau on ajuste les variables de scores et de win condition dans le bon script.
             if (checker == "Level3")
             {
                 FindObjectOfType<UILvl3>()._moveLimit += 1;
-                FindObjectOfType<UILvl3>().wincheck += 1;
-
             }
             if (checker == "Level2")
             {
                 FindObjectOfType<UILvl2>()._moveLimitDeux += 1;
-                FindObjectOfType<UILvl2>().wincheck += 1;
-
             }
             if (checker == "Level1")
             {
                 FindObjectOfType<UILvl1>()._moveLimitUn += 1;
-                FindObjectOfType<UILvl1>().wincheck += 1;
             }
-
-            //Debug.Log(FindObjectOfType<UILvl1>().wincheck);
 
             //on reset la position de la graine.
             ResetPose();
@@ -215,47 +201,59 @@ public class Plant : MonoBehaviour
             {
                 gameObject.SetActive(false);
             }
+
+            //Si la dernière parcelle touchée correspond au tag ciblé :
+            if (finalPosition == true && parcelleStop == true)
+            {
+
+                //on réinitialise les booléens.
+                finalPosition = false;
+                parcelleStop = false;
+
+                //On stocke le booléen qui précise si on a ajouté un point de victoire ou non (dans ce cas on en a ajouté un).
+                addWinPoints = true;
+                winCheckReset.Add(addWinPoints);
+
+                //En fonction du niveau on ajuste les variables de win condition dans le bon script.
+                if (checker == "Level3")
+                {
+                    FindObjectOfType<UILvl3>().wincheck += 1;
+
+                }
+                if (checker == "Level2")
+                {
+                    FindObjectOfType<UILvl2>().wincheck += 1;
+
+                }
+                if (checker == "Level1")
+                {
+                    FindObjectOfType<UILvl1>().wincheck += 1;
+                }
+
+                //Debug.Log(FindObjectOfType<UILvl1>().wincheck);
+            }
+            //Si la parcelle ne correspond pas au bon tag :
+            else if (finalPosition == true && parcelleStop == false)
+            {
+                //on répète le même processus mais cette fois sans ajouter de point de victoire.
+                finalPosition = false;
+                parcelleStop = false;
+
+                addWinPoints = false;
+                winCheckReset.Add(addWinPoints);
+                //Debug.Log(FindObjectOfType<UILvl1>().wincheck);
+            }
         }
-        //Si la parcelle ne correspond pas au bon tag :
-        else if (finalPosition == true && parcelleStop == false)
+        //si la parcelle est déjà occupée :
+        else if (stock.tag == "Taken")
         {
-            //on répète le même processus mais cette fois sans ajouter de point de victoire.
-            plant = Instantiate(plante, new Vector3(targetX, targetY, targetZ), Quaternion.identity);
+            //On reset les booléens de vérification.
             finalPosition = false;
             parcelleStop = false;
-            count -= 1;
-            counter.text = count.ToString();
-            FindObjectOfType<Undo>().history.Add(tag);
-            tagAreasResetS.Add(stock.tag);
-            stock.tag = "Wrong";
-            tagAreasResetO.Add(stock);
-            planted.Add(plant);
-            addWinPoints = false;
-            winCheckReset.Add(addWinPoints);
 
-
-            if (checker == "Level3")
-            {
-                FindObjectOfType<UILvl3>()._moveLimit += 1;
-            }
-            if (checker == "Level2")
-            {
-                FindObjectOfType<UILvl2>()._moveLimitDeux += 1;
-            }
-            if (checker == "Level1")
-            {
-                FindObjectOfType<UILvl1>()._moveLimitUn += 1;
-            }
-
-            //Debug.Log(FindObjectOfType<UILvl1>().wincheck);
-
+            //On reset la position de la graine sans rien faire d'autre.
             ResetPose();
-            if (count <= 0)
-            {
-                gameObject.SetActive(false);
-            }
         }
-
     }
 
     //Quand la fonction est appelée depuis le script Undo :
