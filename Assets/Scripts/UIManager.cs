@@ -21,8 +21,6 @@ public class UIManager : MonoBehaviour
     public bool clueOnSceen = false;
 
 
-    
-    // Start is called before the first frame update
     void Start()
     {
         boxOptions.gameObject.SetActive(false);
@@ -36,7 +34,6 @@ public class UIManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 

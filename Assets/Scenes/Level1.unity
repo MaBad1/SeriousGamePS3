@@ -249,8 +249,12 @@ MonoBehaviour:
   counter: {fileID: 319252377}
   selectableTag: OrangeSeed
   matchingTag: Orange
+  planted: []
+  tagAreasReset: []
+  winCheckReset: 
   speed: 0.01
   count: 1
+  addWinPoints: 0
   checker: 
 --- !u!1 &35555382
 GameObject:
@@ -409,6 +413,7 @@ MonoBehaviour:
   isMuted: 0
   clueOnSceen: 0
   _moveLimitUn: 0
+  wincheck: 0
 --- !u!1 &54555080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,8 +1146,12 @@ MonoBehaviour:
   counter: {fileID: 1280040101}
   selectableTag: RoseSeed
   matchingTag: Rose
+  planted: []
+  tagAreasReset: []
+  winCheckReset: 
   speed: 0.01
   count: 1
+  addWinPoints: 0
   checker: 
 --- !u!1 &411739511
 GameObject:
@@ -3986,6 +3995,7 @@ GameObject:
   - component: {fileID: 1656720738}
   - component: {fileID: 1656720737}
   - component: {fileID: 1656720736}
+  - component: {fileID: 1656720739}
   m_Layer: 5
   m_Name: Undo
   m_TagString: Untagged
@@ -4095,6 +4105,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656720734}
   m_CullTransparentMesh: 1
+--- !u!114 &1656720739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656720734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ea1077b1e97684abec103867c2e224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  history: []
+  fleurs:
+  - {fileID: 27698303}
+  - {fileID: 350707306}
+  - {fileID: 2011448114}
 --- !u!1 &1675922631
 GameObject:
   m_ObjectHideFlags: 0
@@ -4940,8 +4967,12 @@ MonoBehaviour:
   counter: {fileID: 1884120719}
   selectableTag: BleuSeed
   matchingTag: Bleu
+  planted: []
+  tagAreasReset: []
+  winCheckReset: 
   speed: 0.01
   count: 2
+  addWinPoints: 0
   checker: 
 --- !u!1 &2039975863
 GameObject:

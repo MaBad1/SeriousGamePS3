@@ -1012,8 +1012,12 @@ MonoBehaviour:
   counter: {fileID: 93655781}
   selectableTag: RoseSeed
   matchingTag: Rose
+  planted: []
+  tagAreasReset: []
+  winCheckReset: 
   speed: 0.05
   count: 3
+  addWinPoints: 0
   checker: 
 --- !u!1 &225734359
 GameObject:
@@ -1365,8 +1369,12 @@ MonoBehaviour:
   counter: {fileID: 731248442}
   selectableTag: JauneSeed
   matchingTag: Jaune
+  planted: []
+  tagAreasReset: []
+  winCheckReset: 
   speed: 0.05
   count: 2
+  addWinPoints: 0
   checker: 
 --- !u!1 &341648536 stripped
 GameObject:
@@ -1397,8 +1405,12 @@ MonoBehaviour:
   counter: {fileID: 462675339}
   selectableTag: VioletSeed
   matchingTag: Violet
+  planted: []
+  tagAreasReset: []
+  winCheckReset: 
   speed: 0.05
   count: 2
+  addWinPoints: 0
   checker: 
 --- !u!1001 &387401964
 PrefabInstance:
@@ -3769,6 +3781,7 @@ GameObject:
   - component: {fileID: 1064028534}
   - component: {fileID: 1064028533}
   - component: {fileID: 1064028532}
+  - component: {fileID: 1064028535}
   m_Layer: 5
   m_Name: Undo
   m_TagString: Untagged
@@ -3878,6 +3891,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064028530}
   m_CullTransparentMesh: 1
+--- !u!114 &1064028535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064028530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ea1077b1e97684abec103867c2e224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  history: []
+  fleurs:
+  - {fileID: 1886449061}
+  - {fileID: 333511150}
+  - {fileID: 1881652649}
+  - {fileID: 341648536}
+  - {fileID: 215868866}
+  - {fileID: 1796282045}
 --- !u!1 &1121012930
 GameObject:
   m_ObjectHideFlags: 0
@@ -4291,6 +4324,7 @@ MonoBehaviour:
   isMuted: 0
   clueOnSceen: 0
   _moveLimit: 0
+  wincheck: 0
 --- !u!1001 &1294570167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5471,8 +5505,12 @@ MonoBehaviour:
   counter: {fileID: 566057084}
   selectableTag: BleuSeed
   matchingTag: Bleu
+  planted: []
+  tagAreasReset: []
+  winCheckReset: 
   speed: 0.05
   count: 2
+  addWinPoints: 0
   checker: 
 --- !u!4 &1809734076 stripped
 Transform:
@@ -5724,8 +5762,12 @@ MonoBehaviour:
   counter: {fileID: 71824231}
   selectableTag: CyanSeed
   matchingTag: Cyan
+  planted: []
+  tagAreasReset: []
+  winCheckReset: 
   speed: 0.05
   count: 2
+  addWinPoints: 0
   checker: 
 --- !u!1 &1886156846
 GameObject:
@@ -5877,8 +5919,12 @@ MonoBehaviour:
   counter: {fileID: 20777312}
   selectableTag: OrangeSeed
   matchingTag: Orange
+  planted: []
+  tagAreasReset: []
+  winCheckReset: 
   speed: 0.05
   count: 1
+  addWinPoints: 0
   checker: 
 --- !u!1 &1931507817
 GameObject:

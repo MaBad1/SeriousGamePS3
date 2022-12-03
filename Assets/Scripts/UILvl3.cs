@@ -40,6 +40,8 @@ public class UILvl3 : MonoBehaviour
     public bool isMuted = false;
     public bool clueOnSceen = false;
     public int _moveLimit = 0;
+    public int wincheck = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,19 +77,13 @@ public class UILvl3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_moveLimit <= 23 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpen && graineBleue.gameObject.activeInHierarchy == false && graineOrange.gameObject.activeInHierarchy == false && graineJaune.gameObject.activeInHierarchy == false
+
+        moveLimit.text = "Moves : " + _moveLimit.ToString();
+
+        if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpen && graineBleue.gameObject.activeInHierarchy == false && graineOrange.gameObject.activeInHierarchy == false && graineJaune.gameObject.activeInHierarchy == false
             && graineCyan.gameObject.activeInHierarchy == false && graineViolette.gameObject.activeInHierarchy == false && graineRose.gameObject.activeInHierarchy == false)
         {
-            GameOver();
-        }
-        moveLimit.text = "score : " + _moveLimit.ToString();
-
-
-
-        if (_moveLimit >= 24 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpen && graineBleue.gameObject.activeInHierarchy == false && graineOrange.gameObject.activeInHierarchy == false && graineJaune.gameObject.activeInHierarchy == false
-            && graineCyan.gameObject.activeInHierarchy == false && graineViolette.gameObject.activeInHierarchy == false && graineRose.gameObject.activeInHierarchy == false)
-        {
-            WinFunction();
+            WinCheck();
         }
     }
 
@@ -103,12 +99,20 @@ public class UILvl3 : MonoBehaviour
         }
     }
 
+    public void WinCheck()
+    {
+        if (wincheck == 12)
+        {
+            WinFunction();
+        }
+    }
+
     public void WinFunction()
     {
         if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpen)
         {
             FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
-            if(_moveLimit >= 24 && _moveLimit < 30)
+            if(_moveLimit > 24)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
@@ -117,7 +121,7 @@ public class UILvl3 : MonoBehaviour
                 boxStarEmpty.gameObject.SetActive(true);
                 star1.gameObject.SetActive(true);
             }
-            else if (_moveLimit >= 30 && _moveLimit < 36)
+            else if (_moveLimit > 12 && _moveLimit <= 24)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
@@ -127,7 +131,7 @@ public class UILvl3 : MonoBehaviour
                 star1.gameObject.SetActive(true);
                 star2.gameObject.SetActive(true);
             }
-            else if (_moveLimit == 36)
+            else if (_moveLimit <= 12)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);

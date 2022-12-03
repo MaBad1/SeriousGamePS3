@@ -34,9 +34,11 @@ public class UILvl1 : MonoBehaviour
     [SerializeField] GameObject graineUn2;
     [SerializeField] GameObject graineUn3;
 
+
     public bool isMuted = false;
     public bool clueOnSceen = false;
-    public int _moveLimitUn = 15;
+    public int _moveLimitUn = 0;
+    public int wincheck = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,16 +80,11 @@ public class UILvl1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_moveLimitUn <= 5 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn && graineUn1.gameObject.activeInHierarchy == false && graineUn2.gameObject.activeInHierarchy == false && graineUn3.gameObject.activeInHierarchy == false)
-        {
-            GameOver();
-        }
+        moveLimitLvlUn.text = "Moves : " + _moveLimitUn.ToString();
 
-        moveLimitLvlUn.text = "Score : " + _moveLimitUn.ToString();
-
-        if (_moveLimitUn >= 6 && FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn && graineUn1.gameObject.activeInHierarchy == false && graineUn2.gameObject.activeInHierarchy == false && graineUn3.gameObject.activeInHierarchy == false)
+        if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn && graineUn1.gameObject.activeInHierarchy == false && graineUn2.gameObject.activeInHierarchy == false && graineUn3.gameObject.activeInHierarchy == false)
         {
-            WinFunction();
+            WinCheck();
         }
     }
 
@@ -110,13 +107,20 @@ public class UILvl1 : MonoBehaviour
         }
     }
 
+    public void WinCheck()
+    {
+        if(wincheck == 4)
+        {
+            WinFunction();
+        }
+    }
     public void WinFunction()
     {
         
         if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn)
         {
             FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
-            if(_moveLimitUn>=6 && _moveLimitUn < 8)
+            if(_moveLimitUn >8)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
@@ -126,7 +130,7 @@ public class UILvl1 : MonoBehaviour
                 boxStarEmpty.gameObject.SetActive(true);
                 star1.gameObject.SetActive(true);
             }
-            else if (_moveLimitUn >=8 && _moveLimitUn < 12)
+            else if (_moveLimitUn > 4 && _moveLimitUn <=8)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
@@ -137,7 +141,7 @@ public class UILvl1 : MonoBehaviour
                 star1.gameObject.SetActive(true); 
                 star2.gameObject.SetActive(true);
             }
-            else if (_moveLimitUn == 12)
+            else if (_moveLimitUn <= 4)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
