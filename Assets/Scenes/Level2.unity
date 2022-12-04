@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 2037939}
   - component: {fileID: 2037938}
   - component: {fileID: 2037937}
-  - component: {fileID: 2037936}
   m_Layer: 0
   m_Name: Sol
   m_TagString: Untagged
@@ -142,20 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &2037936
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037935}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2037937
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -238,7 +223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -322,7 +307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -477.43}
+  m_AnchoredPosition: {x: 0, y: -124.7}
   m_SizeDelta: {x: 940.84, y: 623.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &97591265
@@ -345,7 +330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 14618e6c72043a64ba1caf768ca8c037, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d17de7db615023d4983bfbbb77b2a805, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -929,7 +914,8 @@ MonoBehaviour:
   selectableTag: VioletSeed
   matchingTag: Violet
   planted: []
-  tagAreasReset: []
+  tagAreasResetO: []
+  tagAreasResetS: []
   winCheckReset: 
   count: 1
   addWinPoints: 0
@@ -1645,7 +1631,8 @@ MonoBehaviour:
   selectableTag: BleuSeed
   matchingTag: Bleu
   planted: []
-  tagAreasReset: []
+  tagAreasResetO: []
+  tagAreasResetS: []
   winCheckReset: 
   count: 1
   addWinPoints: 0
@@ -2956,7 +2943,6 @@ Transform:
   - {fileID: 2100928062}
   - {fileID: 1254878537}
   - {fileID: 785969423}
-  - {fileID: 1724202040}
   - {fileID: 1593652996}
   - {fileID: 1732273892}
   - {fileID: 1563606262}
@@ -3858,7 +3844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3924,7 +3910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4579,77 +4565,12 @@ MonoBehaviour:
   selectableTag: RoseSeed
   matchingTag: Rose
   planted: []
-  tagAreasReset: []
+  tagAreasResetO: []
+  tagAreasResetS: []
   winCheckReset: 
-  count: 3
+  count: 2
   addWinPoints: 0
   checker: 
---- !u!1001 &1724202039
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1208834262}
-    m_Modifications:
-    - target: {fileID: 389089532136635263, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-      propertyPath: m_Name
-      value: PlantArea (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 389089532136635263, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-      propertyPath: m_TagString
-      value: Rose
-      objectReference: {fileID: 0}
-    - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 69.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -51.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9181299
-      objectReference: {fileID: 0}
-    - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.00138324
-      objectReference: {fileID: 0}
-    - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.39626434
-      objectReference: {fileID: 0}
-    - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.0032049164
-      objectReference: {fileID: 0}
-    - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -46.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
---- !u!4 &1724202040 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
-  m_PrefabInstance: {fileID: 1724202039}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1725750589
 GameObject:
   m_ObjectHideFlags: 0
@@ -4743,7 +4664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4916,7 +4837,8 @@ MonoBehaviour:
   selectableTag: OrangeSeed
   matchingTag: Orange
   planted: []
-  tagAreasReset: []
+  tagAreasResetO: []
+  tagAreasResetS: []
   winCheckReset: 
   count: 2
   addWinPoints: 0
@@ -4938,7 +4860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2478679378662274512, guid: 0e5448d9f24c06049abdcc86d86c85c0, type: 3}
       propertyPath: m_LocalPosition.x

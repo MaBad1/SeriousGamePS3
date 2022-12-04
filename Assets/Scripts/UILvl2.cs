@@ -107,7 +107,7 @@ public class UILvl2 : MonoBehaviour
 
     public void WinCheck()
     {
-        if (wincheck == 7)
+        if (wincheck == 6)
         {
             WinFunction();
         }
@@ -118,7 +118,7 @@ public class UILvl2 : MonoBehaviour
         if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux)
         {
             FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
-            if (_moveLimitDeux > 14)
+            if (_moveLimitDeux > 12)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
@@ -128,7 +128,7 @@ public class UILvl2 : MonoBehaviour
                 boxStarEmpty.gameObject.SetActive(true);
                 star1.gameObject.SetActive(true);
             }
-            else if (_moveLimitDeux > 7 && _moveLimitDeux <= 14)
+            else if (_moveLimitDeux > 6 && _moveLimitDeux <= 12)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
@@ -139,7 +139,7 @@ public class UILvl2 : MonoBehaviour
                 star1.gameObject.SetActive(true);
                 star2.gameObject.SetActive(true);
             }
-            else if (_moveLimitDeux <= 7)
+            else if (_moveLimitDeux <= 6)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
