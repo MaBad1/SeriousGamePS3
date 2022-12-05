@@ -34,6 +34,7 @@ public class UILvl2 : MonoBehaviour
     [SerializeField] GameObject graineDeux2;
     [SerializeField] GameObject graineDeux3;
     [SerializeField] GameObject graineDeux4;
+    [SerializeField] ParticleSystem Win;
 
     public bool isMuted = false;
     public bool clueOnSceen = false;
@@ -62,6 +63,7 @@ public class UILvl2 : MonoBehaviour
         star2.gameObject.SetActive(false);
         star3.gameObject.SetActive(false);
         perfect.gameObject.SetActive(false);
+        Win.Stop();
 
         //Debug.Log(gameState);
         bagClose.GetComponent<Button>().onClick.AddListener(OpenBag);
@@ -117,6 +119,7 @@ public class UILvl2 : MonoBehaviour
     {
         if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux)
         {
+            Win.Play();
             FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
             if (_moveLimitDeux > 12)
             {

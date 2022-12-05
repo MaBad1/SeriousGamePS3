@@ -33,6 +33,7 @@ public class UILvl1 : MonoBehaviour
     [SerializeField] GameObject graineUn1;
     [SerializeField] GameObject graineUn2;
     [SerializeField] GameObject graineUn3;
+    [SerializeField] ParticleSystem Win;
 
 
     public bool isMuted = false;
@@ -61,6 +62,7 @@ public class UILvl1 : MonoBehaviour
         star2.gameObject.SetActive(false);
         star3.gameObject.SetActive(false);
         perfect.gameObject.SetActive(false);
+        Win.Stop();
         
 
         //Debug.Log(gameState);
@@ -119,6 +121,7 @@ public class UILvl1 : MonoBehaviour
         
         if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn)
         {
+            Win.Play();
             FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
             if(_moveLimitUn >8)
             {

@@ -20,6 +20,7 @@ TagManager:
   - Camera
   - Right
   - Wrong
+  - Ground
   layers:
   - Default
   - TransparentFX

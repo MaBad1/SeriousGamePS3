@@ -24,7 +24,6 @@ public class Plant : MonoBehaviour
     private bool finalPosition = false;
     private bool parcelleStop = false;
     private bool move = false;
-    private bool invalid = false;
     public bool addWinPoints = false;
     private float originX;
     private float originY;
@@ -32,6 +31,13 @@ public class Plant : MonoBehaviour
     private float targetX;
     private float targetY;
     private float targetZ;
+    private float plantHeight;
+    private float reducerX;
+    private float reducerY;
+    private float reducerZ;
+    private float enlargerX;
+    private float enlargerY;
+    private float enlargerZ;
     public string checker;
 
 
@@ -57,6 +63,14 @@ public class Plant : MonoBehaviour
 
     void Start()
     {
+        plantHeight = plante.GetComponent<MeshRenderer>().bounds.size.y / 2;
+        enlargerX = gameObject.transform.localScale.x;
+        enlargerY = gameObject.transform.localScale.y;
+        enlargerZ = gameObject.transform.localScale.z;
+
+        reducerX = gameObject.transform.localScale.x * 0.9f;
+        reducerY = gameObject.transform.localScale.y *0.9f;
+        reducerZ = gameObject.transform.localScale.z *0.9f;
         //save la position originale de la graine.
         originX = transform.position.x;
         originY = transform.position.y;
@@ -99,6 +113,9 @@ public class Plant : MonoBehaviour
                         //Initialisation des booléens de détections de stop et de correspondance de la bonne parcelle.
                         finalPosition = false;
                         parcelleStop = false;
+
+                        //Modif de taille pour feedback.
+                        gameObject.transform.localScale = new Vector3(reducerX, reducerY, reducerZ);
                     }
                     else if (touch.phase == TouchPhase.Moved)
                     {
@@ -161,7 +178,7 @@ public class Plant : MonoBehaviour
         if(stock.tag != "Taken")
         {
             //on plante le prefab de plante au centre de la parcelle où le joueur a relaché le doigt.
-            plant = Instantiate(plante, new Vector3(targetX, targetY, targetZ), Quaternion.identity);
+            plant = Instantiate(plante, new Vector3(targetX, targetY + plantHeight, targetZ), Quaternion.identity);
 
             //on réduit le nombre de graine à planter et on actualise le compteur.
             count -= 1;
@@ -196,12 +213,6 @@ public class Plant : MonoBehaviour
             //on reset la position de la graine.
             ResetPose();
 
-            //si le compte de graine à poser est a 0 on la désactive.
-            if (count <= 0)
-            {
-                gameObject.SetActive(false);
-            }
-
             //Si la dernière parcelle touchée correspond au tag ciblé :
             if (finalPosition == true && parcelleStop == true)
             {
@@ -213,6 +224,8 @@ public class Plant : MonoBehaviour
                 //On stocke le booléen qui précise si on a ajouté un point de victoire ou non (dans ce cas on en a ajouté un).
                 addWinPoints = true;
                 winCheckReset.Add(addWinPoints);
+
+                stock.GetComponent<Parcelles>().PlayPart();
 
                 //En fonction du niveau on ajuste les variables de win condition dans le bon script.
                 if (checker == "Level3")
@@ -307,5 +320,21 @@ public class Plant : MonoBehaviour
     {
         //On reset la position de la graine en fonction de sa position originale stockée au début.
         transform.position = new Vector3(originX, originY, originZ);
+        gameObject.transform.localScale = new Vector3(enlargerX, enlargerY, enlargerZ);
+
+
+        //si le compte de graine à poser est a 0 on la désactive.
+        if (count <= 0)
+        {
+            Invoke("Desactivate", 0.1f);
+        }
+    }
+
+    public void Desactivate()
+    {
+       
+        
+            gameObject.SetActive(false);
+        
     }
 }
