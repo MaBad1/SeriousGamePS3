@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     public enum State
     {
         Menu,
-        InOptions,
+        TutoBagClose,
+        TutoBagOpen,
         InGameBagCloseLvlUn,
         InGameBagCloseLvlDeux,
         InGameBagClose,

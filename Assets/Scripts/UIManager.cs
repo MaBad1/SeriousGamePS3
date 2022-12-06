@@ -7,12 +7,9 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject startB;
-    [SerializeField] GameObject optionsB;
     [SerializeField] GameObject muteB;
-    [SerializeField] GameObject backB;
-    [SerializeField] GameObject homeB;
     [SerializeField] GameObject boxMenu;
-    [SerializeField] GameObject boxOptions;
+
 
 
 
@@ -23,14 +20,10 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        boxOptions.gameObject.SetActive(false);
 
         //Debug.Log(gameState);
         startB.GetComponent<Button>().onClick.AddListener(StartGame);
         muteB.GetComponent<Button>().onClick.AddListener(MuteSwitch);
-        optionsB.GetComponent<Button>().onClick.AddListener(OptionsShow);
-        homeB.GetComponent<Button>().onClick.AddListener(MainMenu);
-        backB.GetComponent<Button>().onClick.AddListener(StepBack);
 
     }
 
@@ -41,7 +34,7 @@ public class UIManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Tuto");
     }
 
     
@@ -55,27 +48,6 @@ public class UIManager : MonoBehaviour
         {
             isMuted = false;
         }
-    }
-
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("Menu");
-    }
-
-
-
-    public void OptionsShow()
-    {
-        FindObjectOfType<GameManager>().gameState = GameManager.State.InOptions;
-        boxOptions.gameObject.SetActive(true);
-    }
-
-   
-
-    public void StepBack()
-    {
-        FindObjectOfType<GameManager>().gameState = GameManager.State.Menu;
-        boxOptions.gameObject.SetActive(false);
     }
 
 }

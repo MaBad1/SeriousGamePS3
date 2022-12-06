@@ -4,54 +4,50 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UILvl3 : MonoBehaviour
-{
 
+public class UITuto : MonoBehaviour
+{
+    [SerializeField] Text moveLimitLvlUn;
+    [SerializeField] GameObject next1B;
+    [SerializeField] GameObject retryB;
     [SerializeField] GameObject muteB;
-    [SerializeField] GameObject indiceIco;
     [SerializeField] GameObject bagClose;
     [SerializeField] GameObject optionsBack;
     [SerializeField] GameObject homeB;
-    [SerializeField] GameObject clue;
-    [SerializeField] GameObject restartB;
-    [SerializeField] GameObject retryB;
     [SerializeField] GameObject victory;
-    [SerializeField] Text moveLimit;
-    [SerializeField] GameObject boxBagOpen;
-    [SerializeField] GameObject boxBagClose;
-    [SerializeField] GameObject boxGraines;
+    [SerializeField] GameObject restartB;
+    [SerializeField] GameObject boxBagOpenLvlUn;
+    [SerializeField] GameObject boxBagCloseLvlUn;
+    [SerializeField] GameObject boxGrainesLvlUn;
     [SerializeField] GameObject boxStarEmpty;
     [SerializeField] GameObject star1;
     [SerializeField] GameObject star2;
     [SerializeField] GameObject star3;
     [SerializeField] GameObject perfect;
 
-    [SerializeField] GameObject graineBleue;
-    [SerializeField] GameObject graineOrange;
-    [SerializeField] GameObject graineJaune;
-    [SerializeField] GameObject graineCyan;
-    [SerializeField] GameObject graineViolette;
-    [SerializeField] GameObject graineRose;
+    [SerializeField] GameObject graineUn1;
+    [SerializeField] GameObject graineUn2;
     [SerializeField] ParticleSystem Win;
+
 
     public bool isMuted = false;
     public bool clueOnSceen = false;
-    public int _moveLimit = 0;
+    public int _moveLimitUn = 0;
     public int wincheck = 0;
-
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<GameManager>().gameState = GameManager.State.InGameBagClose;
+        FindObjectOfType<GameManager>().gameState = GameManager.State.TutoBagClose;
+        Debug.Log(FindObjectOfType<GameManager>().gameState);
         optionsBack.gameObject.SetActive(false);
-        boxBagOpen.gameObject.SetActive(false);
-        boxBagClose.gameObject.SetActive(true);
-        boxGraines.gameObject.SetActive(false);
+        boxBagOpenLvlUn.gameObject.SetActive(false);
+        boxBagCloseLvlUn.gameObject.SetActive(true);
+        boxGrainesLvlUn.gameObject.SetActive(false);
         bagClose.gameObject.SetActive(true);
-        clue.gameObject.SetActive(false);
         victory.gameObject.SetActive(false);
         retryB.gameObject.SetActive(false);
         restartB.gameObject.SetActive(false);
+        next1B.gameObject.SetActive(false);
         boxStarEmpty.gameObject.SetActive(false);
         star1.gameObject.SetActive(false);
         star2.gameObject.SetActive(false);
@@ -59,86 +55,97 @@ public class UILvl3 : MonoBehaviour
         perfect.gameObject.SetActive(false);
         Win.Stop();
 
+
         //Debug.Log(gameState);
+
         bagClose.GetComponent<Button>().onClick.AddListener(OpenBag);
         muteB.GetComponent<Button>().onClick.AddListener(MuteSwitch);
-        indiceIco.GetComponent<Button>().onClick.AddListener(ShowClue);
         homeB.GetComponent<Button>().onClick.AddListener(MainMenu);
-        restartB.GetComponent<Button>().onClick.AddListener(Restart);
         retryB.GetComponent<Button>().onClick.AddListener(NewTry);
+        restartB.GetComponent<Button>().onClick.AddListener(Restart);
+        next1B.GetComponent<Button>().onClick.AddListener(NextLevel2);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        moveLimitLvlUn.text = "Moves : " + _moveLimitUn.ToString();
 
-        moveLimit.text = "Moves : " + _moveLimit.ToString();
-
-        if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpen && graineBleue.gameObject.activeInHierarchy == false && graineOrange.gameObject.activeInHierarchy == false && graineJaune.gameObject.activeInHierarchy == false
-            && graineCyan.gameObject.activeInHierarchy == false && graineViolette.gameObject.activeInHierarchy == false && graineRose.gameObject.activeInHierarchy == false)
+        if (FindObjectOfType<GameManager>().gameState == GameManager.State.TutoBagOpen && graineUn1.gameObject.activeInHierarchy == false && graineUn2.gameObject.activeInHierarchy == false)
         {
             WinCheck();
         }
     }
 
+    public void NextLevel2()
+    {
+        SceneManager.LoadScene("Level1");
+    }
+
     public void OpenBag()
     {
-        if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagClose)
+
+
+        if (FindObjectOfType<GameManager>().gameState == GameManager.State.TutoBagClose)
         {
-            FindObjectOfType<GameManager>().gameState = GameManager.State.InGameBagOpen;
+            FindObjectOfType<GameManager>().gameState = GameManager.State.TutoBagOpen;
             bagClose.gameObject.SetActive(false);
-            boxBagOpen.gameObject.SetActive(true);
-            boxGraines.gameObject.SetActive(true);
+            boxBagOpenLvlUn.gameObject.SetActive(true);
+            boxGrainesLvlUn.gameObject.SetActive(true);
 
         }
     }
 
     public void WinCheck()
     {
-        if (wincheck == 12)
+        if (wincheck == 6)
         {
             WinFunction();
         }
     }
-
     public void WinFunction()
     {
-        if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpen)
+
+        if (FindObjectOfType<GameManager>().gameState == GameManager.State.TutoBagOpen)
         {
             Win.Play();
             FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
-            if(_moveLimit > 24)
+            if (_moveLimitUn > 6)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
                 retryB.gameObject.SetActive(true);
+                next1B.gameObject.SetActive(true);
                 restartB.gameObject.SetActive(true);
                 boxStarEmpty.gameObject.SetActive(true);
                 star1.gameObject.SetActive(true);
             }
-            else if (_moveLimit > 12 && _moveLimit <= 24)
+            else if (_moveLimitUn > 3 && _moveLimitUn <= 6)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
                 retryB.gameObject.SetActive(true);
+                next1B.gameObject.SetActive(true);
                 restartB.gameObject.SetActive(true);
                 boxStarEmpty.gameObject.SetActive(true);
                 star1.gameObject.SetActive(true);
                 star2.gameObject.SetActive(true);
             }
-            else if (_moveLimit <= 12)
+            else if (_moveLimitUn <= 3)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
-                restartB.gameObject.SetActive(true);
                 perfect.gameObject.SetActive(true);
+                next1B.gameObject.SetActive(true);
+                restartB.gameObject.SetActive(true);
                 boxStarEmpty.gameObject.SetActive(true);
                 star1.gameObject.SetActive(true);
                 star2.gameObject.SetActive(true);
                 star3.gameObject.SetActive(true);
             }
-        }
 
+        }
     }
 
     public void MuteSwitch()
@@ -153,21 +160,6 @@ public class UILvl3 : MonoBehaviour
         }
     }
 
-    public void ShowClue()
-    {
-        if (clueOnSceen == false)
-        {
-            clue.gameObject.SetActive(true);
-            clueOnSceen = true;
-        }
-        else if (clueOnSceen == true)
-        {
-            clue.gameObject.SetActive(false);
-            clueOnSceen = false;
-        }
-    }
-
-
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
@@ -175,7 +167,7 @@ public class UILvl3 : MonoBehaviour
 
     public void NewTry()
     {
-        SceneManager.LoadScene("Level3");
+        SceneManager.LoadScene("Tuto");
     }
     public void Restart()
     {

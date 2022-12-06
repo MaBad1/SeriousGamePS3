@@ -84,7 +84,8 @@ public class Plant : MonoBehaviour
         //fonction de déplacement des graines par le joueur.
         if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpen 
             || FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlUn 
-            || FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux)
+            || FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux
+            || FindObjectOfType<GameManager>().gameState == GameManager.State.TutoBagOpen)
         {
             //Detecte l'input du joueur.
             if (Input.touchCount > 0)

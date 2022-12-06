@@ -11,18 +11,14 @@ public class UILvl2 : MonoBehaviour
     [SerializeField] GameObject boxBagOpenLvlDeux;
     [SerializeField] GameObject boxBagCloseLvlDeux;
     [SerializeField] GameObject boxGrainesLvlDeux;
-    [SerializeField] GameObject boxOptions;
-    [SerializeField] GameObject optionsB;
     [SerializeField] GameObject muteB;
     [SerializeField] GameObject indiceIco;
     [SerializeField] GameObject bagClose;
-    [SerializeField] GameObject backB;
     [SerializeField] GameObject optionsBack;
     [SerializeField] GameObject homeB;
     [SerializeField] GameObject clue;
     [SerializeField] GameObject restartB;
     [SerializeField] GameObject retryB;
-    [SerializeField] GameObject gameOver;
     [SerializeField] GameObject victory;
     [SerializeField] GameObject boxStarEmpty;
     [SerializeField] GameObject star1;
@@ -46,14 +42,12 @@ public class UILvl2 : MonoBehaviour
     void Start()
     {
         FindObjectOfType<GameManager>().gameState = GameManager.State.InGameBagCloseLvlDeux;
-        boxOptions.gameObject.SetActive(false);
         optionsBack.gameObject.SetActive(false);
         boxBagOpenLvlDeux.gameObject.SetActive(false);
         boxBagCloseLvlDeux.gameObject.SetActive(true);
         boxGrainesLvlDeux.gameObject.SetActive(false);
         bagClose.gameObject.SetActive(true);
         clue.gameObject.SetActive(false);
-        gameOver.gameObject.SetActive(false);
         victory.gameObject.SetActive(false);
         retryB.gameObject.SetActive(false);
         restartB.gameObject.SetActive(false);
@@ -69,11 +63,9 @@ public class UILvl2 : MonoBehaviour
         bagClose.GetComponent<Button>().onClick.AddListener(OpenBag);
         muteB.GetComponent<Button>().onClick.AddListener(MuteSwitch);
         indiceIco.GetComponent<Button>().onClick.AddListener(ShowClue);
-        optionsB.GetComponent<Button>().onClick.AddListener(OptionsShow);
         homeB.GetComponent<Button>().onClick.AddListener(MainMenu);
         restartB.GetComponent<Button>().onClick.AddListener(Restart);
         retryB.GetComponent<Button>().onClick.AddListener(NewTry);
-        backB.GetComponent<Button>().onClick.AddListener(StepBack);
         next2B.GetComponent<Button>().onClick.AddListener(NextLevel3);
     }
 
@@ -109,7 +101,7 @@ public class UILvl2 : MonoBehaviour
 
     public void WinCheck()
     {
-        if (wincheck == 6)
+        if (wincheck == 8)
         {
             WinFunction();
         }
@@ -121,7 +113,7 @@ public class UILvl2 : MonoBehaviour
         {
             Win.Play();
             FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
-            if (_moveLimitDeux > 12)
+            if (_moveLimitDeux > 16)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
@@ -131,7 +123,7 @@ public class UILvl2 : MonoBehaviour
                 boxStarEmpty.gameObject.SetActive(true);
                 star1.gameObject.SetActive(true);
             }
-            else if (_moveLimitDeux > 6 && _moveLimitDeux <= 12)
+            else if (_moveLimitDeux > 8 && _moveLimitDeux <= 16)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
@@ -142,7 +134,7 @@ public class UILvl2 : MonoBehaviour
                 star1.gameObject.SetActive(true);
                 star2.gameObject.SetActive(true);
             }
-            else if (_moveLimitDeux <= 6)
+            else if (_moveLimitDeux <= 8)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
@@ -183,41 +175,10 @@ public class UILvl2 : MonoBehaviour
         }
     }
 
-    public void OptionsShow()
-    {
-
-        FindObjectOfType<GameManager>().gameState = GameManager.State.InOptions;
-        boxOptions.gameObject.SetActive(true);
-        retryB.gameObject.SetActive(true);
-        optionsBack.gameObject.SetActive(true);
-    }
 
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
-    }
-
-    public void StepBack()
-    {
-        retryB.gameObject.SetActive(false);
-        boxOptions.gameObject.SetActive(false);
-        optionsBack.gameObject.SetActive(false);
-    }
-
-    public void GameOver()
-    {
-
-        if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagOpenLvlDeux)
-        {
-            FindObjectOfType<GameManager>().gameState = GameManager.State.GameOver;
-            _moveLimitDeux = 17;
-            muteB.gameObject.SetActive(false);
-            optionsB.gameObject.SetActive(false);
-            optionsBack.gameObject.SetActive(true);
-            gameOver.gameObject.SetActive(true);
-            retryB.gameObject.SetActive(true);
-            restartB.gameObject.SetActive(true);
-        }
     }
 
     public void NewTry()

@@ -59,5 +59,15 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Rose
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1576141694673588177, guid: 17ecfe295c907344db5234311c857aa8, type: 3}
+      propertyPath: m_Name
+      value: RosePlanted Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576141694673588177, guid: 17ecfe295c907344db5234311c857aa8, type: 3}
+      propertyPath: m_TagString
+      value: Rose
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5415059734497902765, guid: 17ecfe295c907344db5234311c857aa8, type: 3}
+    - {fileID: 4260659642104121984, guid: 17ecfe295c907344db5234311c857aa8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17ecfe295c907344db5234311c857aa8, type: 3}
