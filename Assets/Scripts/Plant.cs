@@ -58,7 +58,11 @@ public class Plant : MonoBehaviour
         {
             checker = "Level1";
         }
-        
+        if (sceneName == "Tuto")
+        {
+            checker = "Tuto";
+        }
+
     }
 
     void Start()
@@ -210,6 +214,10 @@ public class Plant : MonoBehaviour
             {
                 FindObjectOfType<UILvl1>()._moveLimitUn += 1;
             }
+            if (checker == "Tuto")
+            {
+                FindObjectOfType<UITuto>()._moveLimitUn += 1;
+            }
 
             //on reset la position de la graine.
             ResetPose();
@@ -242,6 +250,10 @@ public class Plant : MonoBehaviour
                 if (checker == "Level1")
                 {
                     FindObjectOfType<UILvl1>().wincheck += 1;
+                }
+                if (checker == "Tuto")
+                {
+                    FindObjectOfType<UITuto>().wincheck += 1;
                 }
 
                 //Debug.Log(FindObjectOfType<UILvl1>().wincheck);
@@ -302,6 +314,10 @@ public class Plant : MonoBehaviour
             if (checker == "Level1")
             {
                 FindObjectOfType<UILvl1>().wincheck -= 1;
+            }
+            if (checker == "Tuto")
+            {
+                FindObjectOfType<UITuto>().wincheck -= 1;
             }
         }
         winCheckReset.RemoveAt(winCheckReset.Count - 1);

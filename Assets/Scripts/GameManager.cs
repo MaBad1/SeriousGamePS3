@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
     {
         Menu,
         TutoBagClose,
+        Tuto1,
+        Tuto2,
+        Tuto3,
+        Tuto4,
+        Tuto5,
         TutoBagOpen,
         InGameBagCloseLvlUn,
         InGameBagCloseLvlDeux,
