@@ -39,7 +39,6 @@ public class Plant : MonoBehaviour
     private float enlargerZ;
     public string checker;
 
-
     private void Awake()
     {
         //detecte dans quelle scene on se trouve et l'enregistre dans le checker.
@@ -70,9 +69,9 @@ public class Plant : MonoBehaviour
         enlargerY = gameObject.transform.localScale.y;
         enlargerZ = gameObject.transform.localScale.z;
 
-        reducerX = gameObject.transform.localScale.x * 0.9f;
-        reducerY = gameObject.transform.localScale.y *0.9f;
-        reducerZ = gameObject.transform.localScale.z *0.9f;
+        reducerX = gameObject.transform.localScale.x * 0.8f;
+        reducerY = gameObject.transform.localScale.y *0.8f;
+        reducerZ = gameObject.transform.localScale.z *0.8f;
         //save la position originale de la graine.
         originX = transform.position.x;
         originY = transform.position.y;
@@ -111,6 +110,7 @@ public class Plant : MonoBehaviour
 
                 if ( move == true)
                 {
+                    
                     if (touch.phase == TouchPhase.Began)
                     {
                         //Initialisation des booléens de détections de stop et de correspondance de la bonne parcelle.
@@ -262,6 +262,8 @@ public class Plant : MonoBehaviour
                 //on répète le même processus mais cette fois sans ajouter de point de victoire.
                 finalPosition = false;
                 parcelleStop = false;
+
+                plant.gameObject.transform.localScale = new Vector3(reducerX, reducerY, reducerZ);
 
                 addWinPoints = false;
                 winCheckReset.Add(addWinPoints);

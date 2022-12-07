@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 2037940}
   m_Layer: 0
   m_Name: Sol
-  m_TagString: Ground
+  m_TagString: Taken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -849,9 +849,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   history: []
   fleurs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4963754716805415952}
+  - {fileID: 7231364271143685184}
+  - {fileID: 9007480646011761410}
   - {fileID: 1768137750}
 --- !u!1 &202961015
 GameObject:
@@ -9704,7 +9704,6 @@ MonoBehaviour:
   graineDeux3: {fileID: 9007480646011761410}
   graineDeux4: {fileID: 1768137750}
   Win: {fileID: 499474455}
-  isMuted: 0
   clueOnSceen: 0
   _moveLimitDeux: 0
   wincheck: 0
@@ -9996,6 +9995,10 @@ PrefabInstance:
     - target: {fileID: 667207268599081933, guid: bafe50e65d424474a8d77100c0debf74, type: 3}
       propertyPath: m_TagString
       value: OrangeSeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677594926524075340, guid: bafe50e65d424474a8d77100c0debf74, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6615975501318662885, guid: bafe50e65d424474a8d77100c0debf74, type: 3}
       propertyPath: m_RootOrder
@@ -10497,14 +10500,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882111035}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.733816, y: 0.015734565, z: -0.011054217, w: 0.6790761}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 85.547, y: 176.199, z: 174.027}
 --- !u!1 &1989053466
 GameObject:
   m_ObjectHideFlags: 0
@@ -11043,6 +11046,10 @@ PrefabInstance:
       value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 4087011680833608442, guid: 78d4619b9727e294a8cc3f9e832a5bc7, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4087011680833608442, guid: 78d4619b9727e294a8cc3f9e832a5bc7, type: 3}
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
@@ -11269,6 +11276,10 @@ PrefabInstance:
       value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 6402829547161845349, guid: 981e63449d302c84a9e20744baadb59b, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6402829547161845349, guid: 981e63449d302c84a9e20744baadb59b, type: 3}
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
@@ -11381,6 +11392,10 @@ PrefabInstance:
     - target: {fileID: 4364776282598635427, guid: 0cde15d939c32644fa66b583b28570cd, type: 3}
       propertyPath: m_Constraints
       value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364776282598635427, guid: 0cde15d939c32644fa66b583b28570cd, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4364776282598635427, guid: 0cde15d939c32644fa66b583b28570cd, type: 3}
       propertyPath: m_CollisionDetection

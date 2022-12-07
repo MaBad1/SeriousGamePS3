@@ -38,7 +38,6 @@ public class UILvl2 : MonoBehaviour
     [SerializeField] GameObject graineDeux4;
     [SerializeField] ParticleSystem Win;
 
-    public bool isMuted = false;
     public bool clueOnSceen = false;
     public int _moveLimitDeux = 0;
     public int wincheck = 0;
@@ -165,13 +164,13 @@ public class UILvl2 : MonoBehaviour
 
     public void MuteSwitch()
     {
-        if (isMuted == false)
+        if (FindObjectOfType<DataCenter>().isMuted == false)
         {
-            isMuted = true;
+            FindObjectOfType<DataCenter>().isMuted = true;
         }
         else
         {
-            isMuted = false;
+            FindObjectOfType<DataCenter>().isMuted = false;
         }
     }
 

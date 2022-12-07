@@ -45,7 +45,6 @@ public class UITuto : MonoBehaviour
     [SerializeField] GameObject Green1;
     [SerializeField] ParticleSystem WinT;
 
-    public bool isMuted = false;
     public int _moveLimitUn = 0;
     public int wincheck = 0;
     // Start is called before the first frame update
@@ -180,13 +179,13 @@ public class UITuto : MonoBehaviour
 
     public void MuteSwitch()
     {
-        if (isMuted == false)
+        if (FindObjectOfType<DataCenter>().isMuted == false)
         {
-            isMuted = true;
+            FindObjectOfType<DataCenter>().isMuted = true;
         }
         else
         {
-            isMuted = false;
+            FindObjectOfType<DataCenter>().isMuted = false;
         }
     }
 

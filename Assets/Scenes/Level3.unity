@@ -4037,23 +4037,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f894d908d7a224a991b9385fa823fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionsB: {fileID: 0}
   muteB: {fileID: 251172357}
   indiceIco: {fileID: 1347180841}
   bagClose: {fileID: 978745838}
-  backB: {fileID: 0}
   optionsBack: {fileID: 1560472620}
   homeB: {fileID: 559321673}
   clue: {fileID: 27440163}
   restartB: {fileID: 1931507817}
   retryB: {fileID: 1886156846}
-  gameOver: {fileID: 0}
   victory: {fileID: 496722840}
   moveLimit: {fileID: 2098930414}
   boxBagOpen: {fileID: 2037236165}
   boxBagClose: {fileID: 2093300388}
   boxGraines: {fileID: 225734359}
-  boxOptions: {fileID: 0}
   boxStarEmpty: {fileID: 1121012930}
   star1: {fileID: 1471085639}
   star2: {fileID: 188003978}
@@ -4066,7 +4062,6 @@ MonoBehaviour:
   graineViolette: {fileID: 341648536}
   graineRose: {fileID: 215868866}
   Win: {fileID: 1540205928}
-  isMuted: 0
   clueOnSceen: 0
   _moveLimit: 0
   wincheck: 0
@@ -11542,6 +11537,10 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 9015507691641048325, guid: 6dfeb1c1bdbb56c44a5a54d2a0f41096, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dfeb1c1bdbb56c44a5a54d2a0f41096, type: 3}
 --- !u!1001 &473112016146872635
@@ -11610,6 +11609,10 @@ PrefabInstance:
     - target: {fileID: 1796911662149028014, guid: ed36f7c7c1cfe3044b9f0f2eaccc4e8c, type: 3}
       propertyPath: m_AngularDrag
       value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796911662149028014, guid: ed36f7c7c1cfe3044b9f0f2eaccc4e8c, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2037012498173795056, guid: ed36f7c7c1cfe3044b9f0f2eaccc4e8c, type: 3}
       propertyPath: m_Name
@@ -11693,6 +11696,10 @@ PrefabInstance:
     - target: {fileID: 1458371879138276501, guid: 273ed9a53d9ab8c4d91174b6b4833fd6, type: 3}
       propertyPath: m_AngularDrag
       value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458371879138276501, guid: 273ed9a53d9ab8c4d91174b6b4833fd6, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1483284659822177201, guid: 273ed9a53d9ab8c4d91174b6b4833fd6, type: 3}
       propertyPath: m_RootOrder
@@ -11841,6 +11848,10 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 4971358647932905094, guid: 107930ee1fe4afc459081b557cc4a0a4, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8221073237778816251, guid: 107930ee1fe4afc459081b557cc4a0a4, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -11933,6 +11944,10 @@ PrefabInstance:
     - target: {fileID: 1677594926524075340, guid: bafe50e65d424474a8d77100c0debf74, type: 3}
       propertyPath: m_AngularDrag
       value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677594926524075340, guid: bafe50e65d424474a8d77100c0debf74, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6615975501318662885, guid: bafe50e65d424474a8d77100c0debf74, type: 3}
       propertyPath: m_RootOrder
@@ -12316,6 +12331,10 @@ PrefabInstance:
     - target: {fileID: 2872359380476675603, guid: b92e36753765dbe4987bec3d76546a3a, type: 3}
       propertyPath: m_AngularDrag
       value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872359380476675603, guid: b92e36753765dbe4987bec3d76546a3a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4023405628742343325, guid: b92e36753765dbe4987bec3d76546a3a, type: 3}
       propertyPath: m_Name

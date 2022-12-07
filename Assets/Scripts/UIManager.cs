@@ -10,11 +10,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject muteB;
     [SerializeField] GameObject boxMenu;
 
-
-
-
-
-    public bool isMuted = false;
     public bool clueOnSceen = false;
 
 
@@ -40,13 +35,13 @@ public class UIManager : MonoBehaviour
     
     public void MuteSwitch()
     {
-        if (isMuted == false)
+        if (FindObjectOfType<DataCenter>().isMuted == false)
         {
-            isMuted = true;
+            FindObjectOfType<DataCenter>().isMuted = true;
         }
         else
         {
-            isMuted = false;
+            FindObjectOfType<DataCenter>().isMuted = false;
         }
     }
 

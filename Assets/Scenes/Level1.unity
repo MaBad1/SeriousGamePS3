@@ -376,7 +376,6 @@ MonoBehaviour:
   graineUn2: {fileID: 8163668187204697137}
   graineUn3: {fileID: 5364125025455950243}
   Win: {fileID: 2027334655}
-  isMuted: 0
   clueOnSceen: 0
   _moveLimitUn: 0
   wincheck: 0
@@ -5035,14 +5034,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514828351}
-  m_LocalRotation: {x: 0.41092014, y: -0.14417808, z: -0.07712408, w: 0.8968886}
+  m_LocalRotation: {x: 0.70044833, y: 0.022102391, z: 0.1297326, w: 0.701465}
   m_LocalPosition: {x: 15.81, y: 23.35, z: 1.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 45.632, y: -27.419, z: -21.549}
+  m_LocalEulerAnglesHint: {x: 77.673, y: 85.226, z: 94.007}
 --- !u!1001 &1521924510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5518,9 +5517,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   history: []
   fleurs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4386426619488441030}
+  - {fileID: 8163668187204697137}
+  - {fileID: 5364125025455950243}
 --- !u!1001 &1714004617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11347,7 +11346,7 @@ GameObject:
   - component: {fileID: 2143149606}
   m_Layer: 0
   m_Name: Sol
-  m_TagString: Ground
+  m_TagString: Taken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11588,6 +11587,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lvl1OrangePlantable
       objectReference: {fileID: 0}
+    - target: {fileID: 7013694190178561153, guid: c1e10998e6853d843bffbb3d73c134a0, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1e10998e6853d843bffbb3d73c134a0, type: 3}
 --- !u!4 &4386426619488441029 stripped
@@ -11630,6 +11633,10 @@ PrefabInstance:
     - target: {fileID: 1216137035757108473, guid: 8fcd5fcdd51a0204aafc1f70d1a655d0, type: 3}
       propertyPath: selectableTag
       value: BleuSeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868984629434362141, guid: 8fcd5fcdd51a0204aafc1f70d1a655d0, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8420473808786191438, guid: 8fcd5fcdd51a0204aafc1f70d1a655d0, type: 3}
       propertyPath: m_Name
@@ -11729,6 +11736,10 @@ PrefabInstance:
     - target: {fileID: 242972695983340521, guid: 01d6f6442506dc3478bfe1c585ddd43a, type: 3}
       propertyPath: selectableTag
       value: RoseSeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916921903071585614, guid: 01d6f6442506dc3478bfe1c585ddd43a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7338647586506725190, guid: 01d6f6442506dc3478bfe1c585ddd43a, type: 3}
       propertyPath: m_Name
