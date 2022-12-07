@@ -31,7 +31,6 @@ public class Plant : MonoBehaviour
     private float targetX;
     private float targetY;
     private float targetZ;
-    private float plantHeight;
     private float reducerX;
     private float reducerY;
     private float reducerZ;
@@ -67,7 +66,6 @@ public class Plant : MonoBehaviour
 
     void Start()
     {
-        plantHeight = plante.GetComponent<MeshRenderer>().bounds.size.y / 2;
         enlargerX = gameObject.transform.localScale.x;
         enlargerY = gameObject.transform.localScale.y;
         enlargerZ = gameObject.transform.localScale.z;
@@ -183,7 +181,7 @@ public class Plant : MonoBehaviour
         if(stock.tag != "Taken")
         {
             //on plante le prefab de plante au centre de la parcelle où le joueur a relaché le doigt.
-            plant = Instantiate(plante, new Vector3(targetX, targetY + plantHeight, targetZ), Quaternion.identity);
+            plant = Instantiate(plante, new Vector3(targetX, targetY, targetZ), Quaternion.identity);
 
             //on réduit le nombre de graine à planter et on actualise le compteur.
             count -= 1;
