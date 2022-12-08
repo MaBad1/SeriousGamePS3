@@ -38,6 +38,7 @@ public class Plant : MonoBehaviour
     private float enlargerY;
     private float enlargerZ;
     public string checker;
+    public float speed = 0.05f;
 
     private void Awake()
     {
@@ -98,7 +99,7 @@ public class Plant : MonoBehaviour
                 //Detecte l'objet touché par le raycast.
                 RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out hit) && FindObjectOfType<GameManager>().cantMove == false)
                 {
                     var selection = hit.transform;
                     //Si l'objet touché a le même tag que la graine on peut le déplacer.
@@ -110,12 +111,15 @@ public class Plant : MonoBehaviour
 
                 if ( move == true)
                 {
-                    
+                    FindObjectOfType<GameManager>().cantMove = true;
                     if (touch.phase == TouchPhase.Began)
                     {
                         //Initialisation des booléens de détections de stop et de correspondance de la bonne parcelle.
                         finalPosition = false;
                         parcelleStop = false;
+
+                        
+                        
 
                         //Modif de taille pour feedback.
                         gameObject.transform.localScale = new Vector3(reducerX, reducerY, reducerZ);
@@ -124,11 +128,13 @@ public class Plant : MonoBehaviour
                     {
                         //déplacement de la graine diréctement de parcelles en parcelles.
                         transform.position = new Vector3(
-                            hit.transform.position.x,
+                            transform.position.x + touch.deltaPosition.x * (speed),
                             transform.position.y,
-                            hit.transform.position.z
+                            transform.position.z + touch.deltaPosition.y * (speed)
                             );
                         //Debug.Log(finalPosition);
+
+                        
                     }
                     else if (touch.phase == TouchPhase.Ended)
                     {
@@ -138,6 +144,8 @@ public class Plant : MonoBehaviour
 
                         //On plante donc une plante ici.
                         PlantTest();
+
+                        FindObjectOfType<GameManager>().cantMove = false;
                     }
                 }
             }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    public bool cantMove = false;
     public enum State
     {
         Menu,
