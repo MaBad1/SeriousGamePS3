@@ -25,6 +25,7 @@ public class UILvl3 : MonoBehaviour
     [SerializeField] GameObject star2;
     [SerializeField] GameObject star3;
     [SerializeField] GameObject perfect;
+    [SerializeField] GameObject indicateur;
 
     [SerializeField] GameObject graineBleue;
     [SerializeField] GameObject graineOrange;
@@ -56,6 +57,7 @@ public class UILvl3 : MonoBehaviour
         star2.gameObject.SetActive(false);
         star3.gameObject.SetActive(false);
         perfect.gameObject.SetActive(false);
+        indicateur.gameObject.SetActive(true);
         Win.Stop();
 
         //Debug.Log(gameState);
@@ -86,6 +88,7 @@ public class UILvl3 : MonoBehaviour
         {
             FindObjectOfType<GameManager>().gameState = GameManager.State.InGameBagOpen;
             bagClose.gameObject.SetActive(false);
+            indicateur.gameObject.SetActive(true);
             boxBagOpen.gameObject.SetActive(true);
             boxGraines.gameObject.SetActive(true);
 

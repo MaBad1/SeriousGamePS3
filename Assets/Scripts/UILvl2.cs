@@ -31,12 +31,14 @@ public class UILvl2 : MonoBehaviour
     [SerializeField] GameObject TutoText2;
     [SerializeField] GameObject TutoTextFond;
     [SerializeField] GameObject indicateur;
+    [SerializeField] GameObject indicateur2;
 
     [SerializeField] GameObject graineDeux1;
     [SerializeField] GameObject graineDeux2;
     [SerializeField] GameObject graineDeux3;
     [SerializeField] GameObject graineDeux4;
     [SerializeField] ParticleSystem Win;
+    
 
     public bool clueOnSceen = false;
     public int _moveLimitDeux = 0;
@@ -68,6 +70,7 @@ public class UILvl2 : MonoBehaviour
         TutoTextFond.gameObject.SetActive(false);
         clueTuto.gameObject.SetActive(false);
         indicateur.gameObject.SetActive(false);
+        indicateur2.gameObject.SetActive(true);
         Win.Stop();
 
         //Debug.Log(gameState);
@@ -105,6 +108,7 @@ public class UILvl2 : MonoBehaviour
         {
             FindObjectOfType<GameManager>().gameState = GameManager.State.Tuto1;
             bagClose.gameObject.SetActive(false);
+            indicateur2.gameObject.SetActive(false);
             boxBagOpenLvlDeux.gameObject.SetActive(true);
             boxGrainesLvlDeux.gameObject.SetActive(true);
             indicateur.gameObject.SetActive(true);
