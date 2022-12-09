@@ -149,6 +149,11 @@ public class UITuto : MonoBehaviour
                 restartBT.gameObject.SetActive(true);
                 boxStarEmptyT.gameObject.SetActive(true);
                 star1T.gameObject.SetActive(true);
+
+                if (FindObjectOfType<Audio>().isMuted == false)
+                {
+                    FindObjectOfType<Audio>()._star1.Play();
+                }
             }
             else if (_moveLimitUn > 3 && _moveLimitUn <= 6)
             {
@@ -160,6 +165,11 @@ public class UITuto : MonoBehaviour
                 boxStarEmptyT.gameObject.SetActive(true);
                 star1T.gameObject.SetActive(true);
                 star2T.gameObject.SetActive(true);
+
+                if (FindObjectOfType<Audio>().isMuted == false)
+                {
+                    FindObjectOfType<Audio>()._star2.Play();
+                }
             }
             else if (_moveLimitUn <= 3)
             {
@@ -172,6 +182,11 @@ public class UITuto : MonoBehaviour
                 star1T.gameObject.SetActive(true);
                 star2T.gameObject.SetActive(true);
                 star3T.gameObject.SetActive(true);
+
+                if (FindObjectOfType<Audio>().isMuted == false)
+                {
+                    FindObjectOfType<Audio>()._star3.Play();
+                }
             }
 
         }
@@ -179,14 +194,17 @@ public class UITuto : MonoBehaviour
 
     public void MuteSwitch()
     {
-        if (FindObjectOfType<DataCenter>().isMuted == false)
+        if (FindObjectOfType<Audio>().isMuted == false)
         {
-            FindObjectOfType<DataCenter>().isMuted = true;
+            FindObjectOfType<Audio>().isMuted = true;
+            FindObjectOfType<Audio>()._birds.Pause();
         }
         else
         {
-            FindObjectOfType<DataCenter>().isMuted = false;
+            FindObjectOfType<Audio>().isMuted = false;
+            FindObjectOfType<Audio>()._birds.Play();
         }
+    
     }
 
     public void Tuto2()

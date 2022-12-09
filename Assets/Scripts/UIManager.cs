@@ -35,13 +35,15 @@ public class UIManager : MonoBehaviour
     
     public void MuteSwitch()
     {
-        if (FindObjectOfType<DataCenter>().isMuted == false)
+        if (FindObjectOfType<Audio>().isMuted == false)
         {
-            FindObjectOfType<DataCenter>().isMuted = true;
+            FindObjectOfType<Audio>().isMuted = true;
+            FindObjectOfType<Audio>()._birds.Pause();
         }
         else
         {
-            FindObjectOfType<DataCenter>().isMuted = false;
+            FindObjectOfType<Audio>().isMuted = false;
+            FindObjectOfType<Audio>()._birds.Play();
         }
     }
 

@@ -19,6 +19,8 @@ public class Audio : MonoBehaviour
     public AudioSource _star3;
     public AudioSource _birds;
     //public AudioSource _music;
+
+    public bool isMuted = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,22 @@ public class Audio : MonoBehaviour
         _star3 = star3.GetComponent<AudioSource>();
         _birds = birds.GetComponent<AudioSource>();
         //_music = music.GetComponent<AudioSource>();
+
+        _right.Stop();
+        _wrong.Stop();
+        _star1.Stop();
+        _star2.Stop();
+        _star3.Stop();
+
+        if(isMuted == false)
+        {
+            _birds.Play();
+        }
+        else if (isMuted == true)
+        {
+            _birds.Stop();
+        }
+        
     }
 
     // Update is called once per frame

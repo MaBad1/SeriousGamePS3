@@ -126,15 +126,29 @@ public class Plant : MonoBehaviour
                     }
                     else if (touch.phase == TouchPhase.Moved)
                     {
-                        //déplacement de la graine diréctement de parcelles en parcelles.
+                        Ray ray2 = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                        //Detecte l'objet touché par le raycast.
+                        RaycastHit hit2;
+
+                        if (Physics.Raycast(ray2, out hit2))
+                        {
+                            
+                        }
+
                         transform.position = new Vector3(
+                            hit2.transform.position.x,
+                            transform.position.y,
+                            hit2.transform.position.z
+                            );
+                        //déplacement de la graine diréctement de parcelles en parcelles.
+                        /*transform.position = new Vector3(
                             transform.position.x + touch.deltaPosition.x * (speed),
                             transform.position.y,
                             transform.position.z + touch.deltaPosition.y * (speed)
-                            );
+                            );*/
                         //Debug.Log(finalPosition);
 
-                        
+
                     }
                     else if (touch.phase == TouchPhase.Ended)
                     {
@@ -262,6 +276,11 @@ public class Plant : MonoBehaviour
                     FindObjectOfType<UITuto>().wincheck += 1;
                 }
 
+                if (FindObjectOfType<Audio>().isMuted == false)
+                {
+                    FindObjectOfType<Audio>()._right.Play();
+                }
+
                 //Debug.Log(FindObjectOfType<UILvl1>().wincheck);
             }
             //Si la parcelle ne correspond pas au bon tag :
@@ -275,6 +294,11 @@ public class Plant : MonoBehaviour
 
                 addWinPoints = false;
                 winCheckReset.Add(addWinPoints);
+
+                if (FindObjectOfType<Audio>().isMuted == false)
+                {
+                    FindObjectOfType<Audio>()._wrong.Play();
+                }
                 //Debug.Log(FindObjectOfType<UILvl1>().wincheck);
             }
         }

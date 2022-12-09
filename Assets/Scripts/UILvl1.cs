@@ -53,7 +53,7 @@ public class UILvl1 : MonoBehaviour
         star3.gameObject.SetActive(false);
         perfect.gameObject.SetActive(false);
         Win.Stop();
-        
+
 
         //Debug.Log(gameState);
         
@@ -119,6 +119,11 @@ public class UILvl1 : MonoBehaviour
                 restartB.gameObject.SetActive(true);
                 boxStarEmpty.gameObject.SetActive(true);
                 star1.gameObject.SetActive(true);
+
+                if(FindObjectOfType<Audio>().isMuted == false)
+                {
+                    FindObjectOfType<Audio>()._star1.Play();
+                }
             }
             else if (_moveLimitUn > 6 && _moveLimitUn <=12)
             {
@@ -130,6 +135,11 @@ public class UILvl1 : MonoBehaviour
                 boxStarEmpty.gameObject.SetActive(true);
                 star1.gameObject.SetActive(true); 
                 star2.gameObject.SetActive(true);
+
+                if (FindObjectOfType<Audio>().isMuted == false)
+                {
+                    FindObjectOfType<Audio>()._star2.Play();
+                }
             }
             else if (_moveLimitUn <= 6)
             {
@@ -142,6 +152,11 @@ public class UILvl1 : MonoBehaviour
                 star1.gameObject.SetActive(true);
                 star2.gameObject.SetActive(true);
                 star3.gameObject.SetActive(true);
+
+                if (FindObjectOfType<Audio>().isMuted == false)
+                {
+                    FindObjectOfType<Audio>()._star3.Play();
+                }
             }
             
         }
@@ -149,13 +164,16 @@ public class UILvl1 : MonoBehaviour
 
     public void MuteSwitch()
     {
-        if (FindObjectOfType<DataCenter>().isMuted == false)
+        if (FindObjectOfType<Audio>().isMuted == false)
         {
-            FindObjectOfType<DataCenter>().isMuted = true;
+            FindObjectOfType<Audio>().isMuted = true;
+            FindObjectOfType<Audio>()._birds.Pause();
         }
         else
         {
-            FindObjectOfType<DataCenter>().isMuted = false;
+            FindObjectOfType<Audio>().isMuted = false;
+            FindObjectOfType<Audio>()._birds.Play();
+
         }
     }
 

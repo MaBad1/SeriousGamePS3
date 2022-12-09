@@ -881,7 +881,6 @@ MonoBehaviour:
   startB: {fileID: 460203733}
   muteB: {fileID: 415019976}
   boxMenu: {fileID: 1803758885}
-  isMuted: 0
   clueOnSceen: 0
 --- !u!1 &1304164449
 GameObject:
@@ -912,6 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c2618ceac10034ebd0005bc8b5a6b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cantMove: 0
   gameState: 0
 --- !u!4 &1304164451
 Transform:
