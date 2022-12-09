@@ -37,6 +37,7 @@ public class UITuto : MonoBehaviour
     [SerializeField] Material Red;
     [SerializeField] Material Green;
     [SerializeField] Material Normal;
+    [SerializeField] GameObject BoxNenuphars;
 
     [SerializeField] GameObject graineT1;
     [SerializeField] GameObject graineT2;
@@ -75,6 +76,7 @@ public class UITuto : MonoBehaviour
         tutoText2.gameObject.SetActive(false);
         tutoText3.gameObject.SetActive(false);
         tutoTFond2.gameObject.SetActive(false);
+        BoxNenuphars.gameObject.SetActive(true);
         WinT.Stop();
 
 
