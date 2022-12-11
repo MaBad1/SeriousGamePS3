@@ -111,9 +111,10 @@ public class Plant : MonoBehaviour
 
                 if ( move == true)
                 {
-                    FindObjectOfType<GameManager>().cantMove = true;
+                    
                     if (touch.phase == TouchPhase.Began)
                     {
+                        FindObjectOfType<GameManager>().cantMove = true;
                         //Initialisation des booléens de détections de stop et de correspondance de la bonne parcelle.
                         finalPosition = false;
                         parcelleStop = false;
@@ -152,6 +153,7 @@ public class Plant : MonoBehaviour
                     }
                     else if (touch.phase == TouchPhase.Ended)
                     {
+                        FindObjectOfType<GameManager>().cantMove = false;
                         //Quand on relache le doigt le booléen de position finale de la graine s'active et celui de mouvement se désactive.
                         finalPosition = true;
                         move = false;
@@ -159,7 +161,7 @@ public class Plant : MonoBehaviour
                         //On plante donc une plante ici.
                         PlantTest();
 
-                        FindObjectOfType<GameManager>().cantMove = false;
+                        
                     }
                 }
             }

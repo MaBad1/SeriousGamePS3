@@ -76,7 +76,7 @@ public class UITuto : MonoBehaviour
         tutoText2.gameObject.SetActive(false);
         tutoText3.gameObject.SetActive(false);
         tutoTFond2.gameObject.SetActive(false);
-        BoxNenuphars.gameObject.SetActive(true);
+        BoxNenuphars.gameObject.SetActive(false);
         WinT.Stop();
 
 
@@ -104,8 +104,20 @@ public class UITuto : MonoBehaviour
         {
             WinCheck();
         }
+
+        if(gameObject.activeInHierarchy == true)
+        {
+            Nenu();
+        }
     }
 
+    public void Nenu()
+    {
+        if(BoxNenuphars.gameObject.activeInHierarchy == false)
+        {
+            BoxNenuphars.gameObject.SetActive(true);
+        }
+    }
     public void NextLevel2()
     {
         SceneManager.LoadScene("Level1");

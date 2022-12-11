@@ -14,6 +14,7 @@ public class Build : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera CamBroken;
     [SerializeField] CinemachineVirtualCamera CamGameplay;
     [SerializeField] ParticleSystem buildPart;
+    [SerializeField] GameObject boxGraines;
 
     private Animator animator;
 
@@ -27,6 +28,7 @@ public class Build : MonoBehaviour
     {
         restored.gameObject.SetActive(false);
         ui.gameObject.SetActive(false);
+        boxGraines.gameObject.SetActive(false);
         win.Stop();
         buildPart.Stop();
         gameObject.GetComponent<Button>().onClick.AddListener(BuildFunction);
