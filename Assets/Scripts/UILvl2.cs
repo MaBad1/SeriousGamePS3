@@ -8,17 +8,13 @@ public class UILvl2 : MonoBehaviour
 {
     [SerializeField] Text moveLimitLvlDeux;
     [SerializeField] GameObject next2B;
-    [SerializeField] GameObject next2BTuto;
     [SerializeField] GameObject boxBagOpenLvlDeux;
     [SerializeField] GameObject boxBagCloseLvlDeux;
     [SerializeField] GameObject boxGrainesLvlDeux;
     [SerializeField] GameObject muteB;
-    [SerializeField] GameObject indiceIco;
     [SerializeField] GameObject bagClose;
     [SerializeField] GameObject optionsBack;
     [SerializeField] GameObject homeB;
-    [SerializeField] GameObject clue;
-    [SerializeField] GameObject clueTuto;
     [SerializeField] GameObject restartB;
     [SerializeField] GameObject retryB;
     [SerializeField] GameObject victory;
@@ -27,11 +23,7 @@ public class UILvl2 : MonoBehaviour
     [SerializeField] GameObject star2;
     [SerializeField] GameObject star3;
     [SerializeField] GameObject perfect;
-    [SerializeField] GameObject TutoText1;
-    [SerializeField] GameObject TutoText2;
-    [SerializeField] GameObject TutoTextFond;
     [SerializeField] GameObject indicateur;
-    [SerializeField] GameObject indicateur2;
 
     [SerializeField] GameObject graineDeux1;
     [SerializeField] GameObject graineDeux2;
@@ -54,7 +46,6 @@ public class UILvl2 : MonoBehaviour
         boxBagCloseLvlDeux.gameObject.SetActive(true);
         boxGrainesLvlDeux.gameObject.SetActive(false);
         bagClose.gameObject.SetActive(true);
-        clue.gameObject.SetActive(false);
         victory.gameObject.SetActive(false);
         retryB.gameObject.SetActive(false);
         restartB.gameObject.SetActive(false);
@@ -64,24 +55,16 @@ public class UILvl2 : MonoBehaviour
         star2.gameObject.SetActive(false);
         star3.gameObject.SetActive(false);
         perfect.gameObject.SetActive(false);
-        next2BTuto.gameObject.SetActive(false);
-        TutoText1.gameObject.SetActive(false);
-        TutoText2.gameObject.SetActive(false);
-        TutoTextFond.gameObject.SetActive(false);
-        clueTuto.gameObject.SetActive(false);
-        indicateur.gameObject.SetActive(false);
-        indicateur2.gameObject.SetActive(true);
+        indicateur.gameObject.SetActive(true);
         Win.Stop();
 
         //Debug.Log(gameState);
         bagClose.GetComponent<Button>().onClick.AddListener(OpenBag);
         muteB.GetComponent<Button>().onClick.AddListener(MuteSwitch);
-        indiceIco.GetComponent<Button>().onClick.AddListener(ShowClue);
         homeB.GetComponent<Button>().onClick.AddListener(MainMenu);
         restartB.GetComponent<Button>().onClick.AddListener(Restart);
         retryB.GetComponent<Button>().onClick.AddListener(NewTry);
         next2B.GetComponent<Button>().onClick.AddListener(NextLevel3);
-        next2BTuto.GetComponent<Button>().onClick.AddListener(NextTuto);
     }
 
     // Update is called once per frame
@@ -106,12 +89,11 @@ public class UILvl2 : MonoBehaviour
 
         if (FindObjectOfType<GameManager>().gameState == GameManager.State.InGameBagCloseLvlDeux)
         {
-            FindObjectOfType<GameManager>().gameState = GameManager.State.Tuto1;
+            FindObjectOfType<GameManager>().gameState = GameManager.State.InGameBagOpenLvlDeux;
             bagClose.gameObject.SetActive(false);
-            indicateur2.gameObject.SetActive(false);
             boxBagOpenLvlDeux.gameObject.SetActive(true);
             boxGrainesLvlDeux.gameObject.SetActive(true);
-            indicateur.gameObject.SetActive(true);
+            indicateur.gameObject.SetActive(false);
 
         }
     }
@@ -194,74 +176,6 @@ public class UILvl2 : MonoBehaviour
             FindObjectOfType<Audio>().isMuted = false;
             FindObjectOfType<Audio>()._birds.Play();
         }
-    }
-
-    public void ShowClue()
-    {
-        if (clueOnSceen == false)
-        {
-            clue.gameObject.SetActive(true);
-            clueOnSceen = true;
-        }
-        else if (clueOnSceen == true)
-        {
-            clue.gameObject.SetActive(false);
-            clueOnSceen = false;
-        }
-        if(FindObjectOfType<GameManager>().gameState == GameManager.State.Tuto1)
-        {
-            Tuto2();
-        }
-        else if (FindObjectOfType<GameManager>().gameState == GameManager.State.Tuto4)
-        {
-            Free();
-        }
-    }
-
-    public void NextTuto()
-    {
-        if (FindObjectOfType<GameManager>().gameState == GameManager.State.Tuto2)
-        {
-            Tuto3();
-        }
-        else if (FindObjectOfType<GameManager>().gameState == GameManager.State.Tuto3)
-        {
-            Tuto4();
-        }
-        
-    }
-
-    public void Tuto2()
-    {
-        FindObjectOfType<GameManager>().gameState = GameManager.State.Tuto2;
-        TutoText1.gameObject.SetActive(true);
-        TutoTextFond.gameObject.SetActive(true);
-        next2BTuto.gameObject.SetActive(true);
-        indicateur.gameObject.SetActive(false);
-    }
-
-    public void Tuto3()
-    {
-        FindObjectOfType<GameManager>().gameState = GameManager.State.Tuto3;
-        TutoText1.gameObject.SetActive(false);
-        TutoText2.gameObject.SetActive(true);
-        clueTuto.gameObject.SetActive(true);
-    }
-
-    public void Tuto4()
-    {
-        FindObjectOfType<GameManager>().gameState = GameManager.State.Tuto4;
-        clueTuto.gameObject.SetActive(false);
-        TutoText2.gameObject.SetActive(false);
-        TutoTextFond.gameObject.SetActive(false);
-        next2BTuto.gameObject.SetActive(false);
-        indicateur.gameObject.SetActive(true);
-    }
-
-    public void Free()
-    {
-        FindObjectOfType<GameManager>().gameState = GameManager.State.InGameBagOpenLvlDeux;
-        indicateur.gameObject.SetActive(false);
     }
 
     public void MainMenu()

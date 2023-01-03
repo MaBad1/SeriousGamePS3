@@ -8,11 +8,9 @@ public class UILvl3 : MonoBehaviour
 {
 
     [SerializeField] GameObject muteB;
-    [SerializeField] GameObject indiceIco;
     [SerializeField] GameObject bagClose;
     [SerializeField] GameObject optionsBack;
     [SerializeField] GameObject homeB;
-    [SerializeField] GameObject clue;
     [SerializeField] GameObject restartB;
     [SerializeField] GameObject retryB;
     [SerializeField] GameObject victory;
@@ -48,7 +46,6 @@ public class UILvl3 : MonoBehaviour
         boxBagClose.gameObject.SetActive(true);
         boxGraines.gameObject.SetActive(false);
         bagClose.gameObject.SetActive(true);
-        clue.gameObject.SetActive(false);
         victory.gameObject.SetActive(false);
         retryB.gameObject.SetActive(false);
         restartB.gameObject.SetActive(false);
@@ -63,7 +60,6 @@ public class UILvl3 : MonoBehaviour
         //Debug.Log(gameState);
         bagClose.GetComponent<Button>().onClick.AddListener(OpenBag);
         muteB.GetComponent<Button>().onClick.AddListener(MuteSwitch);
-        indiceIco.GetComponent<Button>().onClick.AddListener(ShowClue);
         homeB.GetComponent<Button>().onClick.AddListener(MainMenu);
         restartB.GetComponent<Button>().onClick.AddListener(Restart);
         retryB.GetComponent<Button>().onClick.AddListener(NewTry);
@@ -172,21 +168,6 @@ public class UILvl3 : MonoBehaviour
             FindObjectOfType<Audio>()._birds.Play();
         }
     }
-
-    public void ShowClue()
-    {
-        if (clueOnSceen == false)
-        {
-            clue.gameObject.SetActive(true);
-            clueOnSceen = true;
-        }
-        else if (clueOnSceen == true)
-        {
-            clue.gameObject.SetActive(false);
-            clueOnSceen = false;
-        }
-    }
-
 
     public void MainMenu()
     {

@@ -165,8 +165,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3178709195526858309, guid: 22440f8ee846a1d428750715d6292210, type: 3}
+      propertyPath: lengthInSec
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3178709195526858309, guid: 22440f8ee846a1d428750715d6292210, type: 3}
       propertyPath: SizeModule.enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3178709195526858309, guid: 22440f8ee846a1d428750715d6292210, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3178709195526858309, guid: 22440f8ee846a1d428750715d6292210, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
