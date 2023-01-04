@@ -100,7 +100,7 @@ public class UILvl2 : MonoBehaviour
 
     public void WinCheck()
     {
-        if (wincheck == 8)
+        if (wincheck == 11)
         {
             WinFunction();
         }
@@ -112,7 +112,7 @@ public class UILvl2 : MonoBehaviour
         {
             Win.Play();
             FindObjectOfType<GameManager>().gameState = GameManager.State.Win;
-            if (_moveLimitDeux > 16)
+            if (_moveLimitDeux > 22)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
@@ -127,7 +127,7 @@ public class UILvl2 : MonoBehaviour
                     FindObjectOfType<Audio>()._star1.Play();
                 }
             }
-            else if (_moveLimitDeux > 8 && _moveLimitDeux <= 16)
+            else if (_moveLimitDeux > 11 && _moveLimitDeux <= 22)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);
@@ -144,7 +144,7 @@ public class UILvl2 : MonoBehaviour
                 }
 
             }
-            else if (_moveLimitDeux <= 8)
+            else if (_moveLimitDeux <= 11)
             {
                 victory.gameObject.SetActive(true);
                 optionsBack.gameObject.SetActive(true);

@@ -9,6 +9,7 @@ public class Plant : MonoBehaviour
     [SerializeField] GameObject plante;
     [SerializeField] Material triggerOn;
     [SerializeField] Material triggerOff;
+    [SerializeField] Material colorMat;
     [SerializeField] Text counter;
     [SerializeField] public string selectableTag = "Selectable";
     [SerializeField] public string matchingTag = "Matching";
@@ -37,6 +38,7 @@ public class Plant : MonoBehaviour
     private float enlargerX;
     private float enlargerY;
     private float enlargerZ;
+    private bool isPlanted = false;
     public string checker;
     public float speed = 0.05f;
 
@@ -111,6 +113,7 @@ public class Plant : MonoBehaviour
 
                 if ( move == true)
                 {
+                    isPlanted = false;
                     
                     if (touch.phase == TouchPhase.Began)
                     {
@@ -179,7 +182,11 @@ public class Plant : MonoBehaviour
         targetZ = other.transform.position.z;
 
         //application d'un matérial plus sombre sur la parcelle pour feedback visuel.
-        other.GetComponent<MeshRenderer>().material = triggerOn;
+        if(other.tag != "Taken")
+        {
+            other.GetComponent<MeshRenderer>().material = triggerOn;
+        }
+        
 
         //Si le tag de la parcelle correspond au tag visé, le booléen de vérification s'active.
         if (matchingTag == other.tag)
@@ -195,8 +202,16 @@ public class Plant : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //Quand on quitte une parcelle le matérial redevient celui de base.
-        other.GetComponent<MeshRenderer>().material = triggerOff;
+        if(isPlanted == false && other.tag != "Taken")
+        {
+            //Quand on quitte une parcelle le matérial redevient celui de base.
+            other.GetComponent<MeshRenderer>().material = triggerOff;
+        }
+        else if(isPlanted == true)
+        {
+            other.GetComponent<MeshRenderer>().material = colorMat;
+        }
+        
     }
 
     private void PlantTest()
@@ -204,6 +219,8 @@ public class Plant : MonoBehaviour
         //Si la parcelle est vide :
         if(stock.tag != "Taken")
         {
+            isPlanted = true;
+
             //on plante le prefab de plante au centre de la parcelle où le joueur a relaché le doigt.
             plant = Instantiate(plante, new Vector3(targetX, targetY, targetZ), Quaternion.identity);
 
@@ -243,6 +260,8 @@ public class Plant : MonoBehaviour
 
             //on reset la position de la graine.
             ResetPose();
+
+            
 
             //Si la dernière parcelle touchée correspond au tag ciblé :
             if (finalPosition == true && parcelleStop == true)
@@ -303,10 +322,12 @@ public class Plant : MonoBehaviour
                 }
                 //Debug.Log(FindObjectOfType<UILvl1>().wincheck);
             }
+            
         }
         //si la parcelle est déjà occupée :
         else if (stock.tag == "Taken")
         {
+            
             //On reset les booléens de vérification.
             finalPosition = false;
             parcelleStop = false;
@@ -332,6 +353,7 @@ public class Plant : MonoBehaviour
         int i = planted.Count - 1;
         Destroy(planted[i]);
         planted.RemoveAt(planted.Count - 1);
+        stock.GetComponent<MeshRenderer>().material = triggerOff;
 
         //Si lors de la dernière action de cette graine on a ajouté un point on le retire et on supprime la donnée du booléen de vérification de la liste.
         int j = winCheckReset.Count - 1;
