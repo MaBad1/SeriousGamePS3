@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class Plant : MonoBehaviour
 {
     [SerializeField] GameObject plante;
+    [SerializeField] GameObject vert;
+    [SerializeField] GameObject hori;
     [SerializeField] Material triggerOn;
     [SerializeField] Material triggerOff;
     [SerializeField] Material colorMat;
@@ -38,6 +40,12 @@ public class Plant : MonoBehaviour
     private float enlargerX;
     private float enlargerY;
     private float enlargerZ;
+    private float vOriginX;
+    private float vOriginY;
+    private float vOriginZ;
+    private float hOriginX;
+    private float hOriginY;
+    private float hOriginZ;
     private bool isPlanted = false;
     public string checker;
     public float speed = 0.05f;
@@ -79,6 +87,15 @@ public class Plant : MonoBehaviour
         originX = transform.position.x;
         originY = transform.position.y;
         originZ = transform.position.z;
+
+        vOriginX = vert.gameObject.transform.position.x;
+        vOriginY = vert.gameObject.transform.position.y;
+        vOriginZ = vert.gameObject.transform.position.z;
+
+        hOriginX = hori.gameObject.transform.position.x;
+        hOriginY = hori.gameObject.transform.position.y;
+        hOriginZ = hori.gameObject.transform.position.z;
+
         //update l'affichage du nombre de graine à poser.
         counter.text = count.ToString();
     }
@@ -181,6 +198,9 @@ public class Plant : MonoBehaviour
         targetY = other.transform.position.y;
         targetZ = other.transform.position.z;
 
+        vert.transform.position = new Vector3(other.transform.position.x, vOriginY, vOriginZ);
+        hori.transform.position = new Vector3(hOriginX, hOriginY, other.transform.position.z);
+
         //application d'un matérial plus sombre sur la parcelle pour feedback visuel.
         if(other.tag != "Taken")
         {
@@ -211,7 +231,10 @@ public class Plant : MonoBehaviour
         {
             other.GetComponent<MeshRenderer>().material = colorMat;
         }
-        
+
+        vert.transform.position = new Vector3(vOriginX, vOriginY, vOriginZ);
+        hori.transform.position = new Vector3(hOriginX, hOriginY, hOriginZ);
+
     }
 
     private void PlantTest()
