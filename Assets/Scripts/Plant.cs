@@ -334,7 +334,7 @@ public class Plant : MonoBehaviour
                 finalPosition = false;
                 parcelleStop = false;
 
-                plant.gameObject.transform.localScale = new Vector3(reducerX, reducerY, reducerZ);
+                //plant.gameObject.transform.localScale = new Vector3(reducerX, reducerY, reducerZ);
 
                 addWinPoints = false;
                 winCheckReset.Add(addWinPoints);
